@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "../../pages/BreadCrumbs";
 
 interface BlogPost {
   id: number;
@@ -14,6 +15,10 @@ interface BlogPost {
 const Blogs: React.FC = () => {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Blogs", path: "/blogs" },
+  ];
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -63,6 +68,7 @@ const Blogs: React.FC = () => {
       transition={{ duration: 0.5 }}
       className="max-w-3xl mx-auto p-8"
     >
+        <Breadcrumbs items={breadcrumbItems}/>
       <h1 className="text-3xl font-bold text-center mb-8">Health Care Blogs</h1>
 
       {/* Search Bar */}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Breadcrumbs from "./BreadCrumbs";
 
 interface Appointment {
   id: number;
@@ -23,6 +24,10 @@ const AppointmentDetail = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [newDate, setNewDate] = useState(appointment.appointmentDate);
   const [newTime, setNewTime] = useState(appointment.appointmentTime);
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Appointment", path: "/appointment" },
+  ];
 
   const handleStatusChange = (newStatus: Appointment['status']) => {
     setAppointment({ ...appointment, status: newStatus });
@@ -34,6 +39,8 @@ const AppointmentDetail = () => {
   };
 
   return (
+    <>
+    <Breadcrumbs items={breadcrumbItems}/>
     <motion.div
       className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg mt-10"
       initial={{ opacity: 0, y: 50 }}
@@ -142,6 +149,7 @@ const AppointmentDetail = () => {
         </button>
       </div>
     </motion.div>
+    </>
   );
 };
 

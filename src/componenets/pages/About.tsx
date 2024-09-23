@@ -1,22 +1,29 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper React components
-import "swiper/css"; // Basic Swiper styles
-import "swiper/css/navigation"; // Swiper navigation styles (if needed)
-import "swiper/css/pagination"; // Swiper pagination styles (if needed)
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Breadcrumbs from "./BreadCrumbs"; // Adjust the import path as necessary
 
-// Replace with actual image paths
 const images = [
   "hospital1.jpg",
   "hospital2.jpg",
   "hospital3.jpg",
-  // Add the paths for all 50 images here
-  // "hospital4.jpg", ..., "hospital50.jpg"
+  // Add paths for all images
 ];
 
 const About: React.FC = () => {
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "About Us", path: "/about-us" },
+  ];
+
   return (
     <div className="p-6 bg-white">
+      {/* Breadcrumbs Section */}
+      <Breadcrumbs items={breadcrumbItems} />
+
       {/* Header Section */}
       <motion.h1
         className="text-4xl font-bold text-center mb-8"
@@ -75,7 +82,7 @@ const About: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className=" text-3xl md:text-5xl p-3 text-center ">Hospital Gallery</h1>
+        <h1 className="text-3xl md:text-5xl p-3 text-center">Hospital Gallery</h1>
         <Swiper
           spaceBetween={30}
           slidesPerView={1}

@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaHeartbeat, FaBrain, FaChild, FaBone, FaClinicMedical, FaSyringe } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "./BreadCrumbs";
 
 const departments = [
   { id: 'cardiology', name: "Cardiology", description: "Heart and vascular care.", icon: <FaHeartbeat /> },
@@ -18,9 +19,13 @@ const Departments: React.FC = () => {
 //   const toggleMoreInfo = (index: number) => {
 //     setSelectedDepartment(selectedDepartment === index ? null : index);
 //   };
-
+const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Departments", path: "/departments" },
+  ];
   return (
     <div className="p-6 bg-white">
+        <Breadcrumbs items={breadcrumbItems}/>
       <motion.h1
         className="text-4xl font-bold text-center mb-8"
         initial={{ opacity: 0, y: -50 }}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Breadcrumbs from "./BreadCrumbs";
 // import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact: React.FC = () => {
@@ -9,6 +10,10 @@ const Contact: React.FC = () => {
     message: "",
     phone: "",
   });
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Contact", path: "/contact-us" },
+  ];
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -65,6 +70,7 @@ const Contact: React.FC = () => {
 
   return (
     <div className="flex flex-col lg:flex-row p-6 bg-white">
+      <Breadcrumbs items={breadcrumbItems} />
       {/* Side Image */}
       <div className="hidden lg:block lg:w-1/2">
         <img

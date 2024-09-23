@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Breadcrumbs from "./BreadCrumbs";
 
 const doctors = [
   {
@@ -52,6 +53,10 @@ const Doctors: React.FC = () => {
   const openModal = (doctor: typeof doctors[0]) => {
     setSelectedDoctor(doctor);
   };
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Docters", path: "/doctors" },
+  ];
 
   const closeModal = () => {
     setSelectedDoctor(null);
@@ -66,6 +71,7 @@ const Doctors: React.FC = () => {
 
   return (
     <div className="p-6 bg-white">
+      <Breadcrumbs items={breadcrumbItems}/>
       <motion.h1
         className="text-4xl font-bold text-center mb-8"
         initial={{ opacity: 0, y: -50 }}

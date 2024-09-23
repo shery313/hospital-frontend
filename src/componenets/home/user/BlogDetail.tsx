@@ -1,9 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import Breadcrumbs from "../../pages/BreadCrumbs";
 
 const BlogDetail: React.FC = () => {
   const { id } = useParams<{ id: string | undefined }>();
+  const breadcrumbItems = [
+    { label: "Blogs", path: "/blogs" },
+    { label: "Blog Detail", path: "/blog-detial" },
+  ];
 
   // If id is undefined, return a fallback or redirect
   if (!id) {
@@ -26,6 +31,7 @@ const BlogDetail: React.FC = () => {
       transition={{ duration: 0.5 }}
       className="max-w-3xl mx-auto p-8"
     >
+        <Breadcrumbs items={breadcrumbItems}/>
       <h1 className="text-3xl font-bold mb-4">{blogPost.title}</h1>
       <img src={blogPost.image} alt={blogPost.title} className="w-full h-64 object-cover mb-4" />
       <p className="text-gray-500 mb-2">{blogPost.date}</p>

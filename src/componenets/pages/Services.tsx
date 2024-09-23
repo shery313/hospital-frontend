@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaAmbulance, FaHeartbeat, FaChild, FaMixer, FaRadiation, FaFlask } from "react-icons/fa";
+import Breadcrumbs from "./BreadCrumbs";
 
 const servicesList = [
   { title: "Emergency Care", description: "24/7 emergency services with immediate assistance.", icon: <FaAmbulance className="text-blue-600 text-3xl mb-2" /> },
@@ -13,10 +14,17 @@ const servicesList = [
 ];
 
 const Services: React.FC = () => {
-  return (
+    const breadcrumbItems = [
+        { label: "Home", path: "/" },
+        { label: "Services", path: "/services" },
+      ];
+    
+    return (
     <div className="flex flex-col md:flex-row bg-gray-50">
+        
       {/* Services List */}
       <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
+      <Breadcrumbs items={breadcrumbItems}/>
         <motion.h1
           className="text-4xl font-bold mb-8 text-center text-blue-600"
           initial={{ opacity: 0, y: -50 }}
