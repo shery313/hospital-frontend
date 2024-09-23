@@ -10,8 +10,8 @@ const WhatsAppChat: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
-      <button onClick={handleClick} className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
+    <div className="fixed bottom-4 right-4 z-50 h-20 w-20">
+      <button onClick={handleClick} className="bg-green-500 h-full w-full text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition">
         <FontAwesomeIcon icon={faWhatsapp} size="2x" />
       </button>
     </div>
