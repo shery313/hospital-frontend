@@ -43,9 +43,9 @@ const DoctorProfile: React.FC = () => {
           <h2 className="text-xl text-gray-600">{doctor.specialty}</h2>
           <p className="mt-4 text-gray-700">{doctor.bio}</p>
           <h3 className="mt-6 text-lg font-semibold">Availability:</h3>
-          <ul className="list-disc list-inside mt-2">
+          <ul className="list-disc list-inside  mt-2 ">
             {doctor.availability.map((day, index) => (
-              <li key={index} className="text-gray-600">{day}</li>
+              <li key={index} className="text-gray-600 ">{day}</li>
             ))}
           </ul>
           <h3 className="mt-6 text-lg font-semibold">Contact:</h3>

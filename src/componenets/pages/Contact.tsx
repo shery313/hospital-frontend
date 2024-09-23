@@ -68,9 +68,11 @@ const Contact: React.FC = () => {
   //   setCaptchaValue(value);
   // };
 
-  return (
+  return (<div className="p-5">
+  <Breadcrumbs  items={breadcrumbItems} />
+  
     <div className="flex flex-col lg:flex-row p-6 bg-white">
-      <Breadcrumbs items={breadcrumbItems} />
+      
       {/* Side Image */}
       <div className="hidden lg:block lg:w-1/2">
         <img
@@ -174,7 +176,7 @@ const Contact: React.FC = () => {
           </button>
         </motion.form>
       </motion.div>
-    </div>
+    </div></div>
   );
 };
 
