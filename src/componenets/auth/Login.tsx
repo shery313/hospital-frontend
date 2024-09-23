@@ -29,7 +29,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col-reverse md:flex-row h-screen">
+    <div className="flex flex-col-reverse md:flex-row h-fit">
       {/* Login Form */}
       <div className="w-full md:w-1/2 p-8 bg-white flex flex-col justify-center">
         <motion.h1
