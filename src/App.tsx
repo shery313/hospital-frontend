@@ -16,7 +16,7 @@ import HealthResources from './componenets/pages/HealthResources';
 import Profile from './componenets/home/user/Profile';
 import Blogs from './componenets/home/user/Blogs';
 import BlogDetail from './componenets/home/user/BlogDetail';
-// import EditAppointment from './componenets/pages/EditAppointment';
+import WhatsAppChat from './componenets/home/user/WhatsAppChat'; // Adjust the path if needed
 
 function App() {
   return (
@@ -35,11 +35,11 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogDetail />} />
-        {/* <Route path="/edit-appointment" element={<EditAppointment />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
+      <WhatsAppChat /> {/* Include WhatsApp chat component */}
     </Router>
   );
 }
