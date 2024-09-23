@@ -17,6 +17,15 @@ import Profile from './componenets/home/user/Profile';
 import Blogs from './componenets/home/user/Blogs';
 import BlogDetail from './componenets/home/user/BlogDetail';
 import WhatsAppChat from './componenets/home/user/WhatsAppChat'; // Adjust the path if needed
+import EmergencyCareDetail from './componenets/services/EmergencyCareDetail';
+import OrthopedicsDetail from './componenets/services/OrthapedicDetail';
+import NeurologyDetail from './componenets/services/NeourologyDetail';
+import CardiologyDetail from './componenets/services/Cardiology';
+import OncologyDetail from './componenets/services/Oncology';
+import PediatricsDetail from './componenets/services/PediatricsDetail';
+import GeneralMedicineDetail from './componenets/services/GeneralMedicineDetail';
+import SpecialistCareDetail from './componenets/services/SpecialistCareDetail';
+import DoctorProfile from './componenets/services/DoctorProfile';
 
 function App() {
   return (
@@ -32,6 +41,16 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/appointment-detail" element={<AppointmentDetail />} />
         <Route path="/health-resources" element={<HealthResources />} />
+        <Route path="/services/emergency" element={<EmergencyCareDetail />} />
+        <Route path="/services/orthopedics" element={<OrthopedicsDetail />} />
+        <Route path="/services/neurology" element={<NeurologyDetail />} />
+        <Route path="/services/cardiology" element={<CardiologyDetail />} />
+        <Route path="/services/oncology" element={<OncologyDetail />} />
+        <Route path="/services/pediatrics" element={<PediatricsDetail />} />
+        {/* <Route path="/doctors:doctorId" element={<DoctorProfile />} /> */}
+        <Route path="/doctors/:doctorId" element={<DoctorProfile/>} />
+        <Route path="/services/general-medicine" element={<GeneralMedicineDetail />} />
+        <Route path="/services/specialist-care" element={<SpecialistCareDetail />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogDetail />} />

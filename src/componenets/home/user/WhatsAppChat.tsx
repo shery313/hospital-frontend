@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 
 const WhatsAppChat: React.FC = () => {
-  const phoneNumber = '+923075304856'; // Replace with your WhatsApp number
+  const phoneNumber = '+254718959781'; // Replace with your WhatsApp number
 
   const handleClick = () => {
     window.open(`https://wa.me/${phoneNumber}`, '_blank');
