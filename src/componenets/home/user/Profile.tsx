@@ -20,7 +20,7 @@ const Profile: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isPasswordEditing, setIsPasswordEditing] = useState(false);
   const [newPassword, setNewPassword] = useState("");
-  const [profilePic, setProfilePic] = useState<File | null>(null);
+  const [profilePic, setProfilePic] = useState<string>(""); // Store the image URL
   const navigate = useNavigate();
 
   // Fetch user data (mocked for this example)
@@ -28,6 +28,7 @@ const Profile: React.FC = () => {
     const fetchUserProfile = async () => {
       const userData = await getUserData();
       setUserProfile(userData);
+      setProfilePic(userData.profilePic); // Initialize profilePic state
     };
     fetchUserProfile();
   }, []);
@@ -54,9 +55,10 @@ const Profile: React.FC = () => {
 
   const handleProfilePicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      setProfilePic(e.target.files[0]);
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
-      setUserProfile({ ...userProfile, profilePic: imageUrl });
+      const file = e.target.files[0];
+      const imageUrl = URL.createObjectURL(file);
+      setProfilePic(imageUrl); // Set the new profile picture URL
+      setUserProfile((prevProfile) => ({ ...prevProfile, profilePic: imageUrl }));
     }
   };
 
@@ -84,7 +86,7 @@ const Profile: React.FC = () => {
       <div className="flex flex-col items-center mb-6">
         <div className="relative">
           <motion.img
-            src={userProfile.profilePic}
+            src={profilePic || "default-profile.jpg"} // Use profilePic state
             alt="Profile"
             className="w-32 h-32 rounded-full border-4 border-blue-600"
             whileHover={{ scale: 1.1 }}
