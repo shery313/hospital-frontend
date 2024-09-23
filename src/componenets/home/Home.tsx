@@ -65,7 +65,8 @@ const Home: React.FC = () => {
               <img src={image.imgSrc} alt={image.alt} className="object-cover w-full h-full" />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                 <motion.h1 className="text-white hover:text-blue-500 text-center text-3xl md:text-6xl font-bold" variants={fadeInUp}>
-                  Your Health, Our Priority
+                  {/* Your Health, Our Priority */}
+                  CATHOLIC HOSPITAL WAMBA
                 </motion.h1>
               </div>
             </motion.div>
