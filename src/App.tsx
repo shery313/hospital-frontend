@@ -13,12 +13,15 @@ import Signup from './componenets/auth/Signup';
 import Services from './componenets/pages/Services';
 import AppointmentDetail from './componenets/pages/AppointmentDetail';
 import HealthResources from './componenets/pages/HealthResources';
+import Profile from './componenets/home/user/Profile';
+import Blogs from './componenets/home/user/Blogs';
+import BlogDetail from './componenets/home/user/BlogDetail';
 // import EditAppointment from './componenets/pages/EditAppointment';
 
 function App() {
   return (
     <Router>
-      <Header />
+      <Header isAuthenticated={true} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/appointment" element={<Appointment />} />
@@ -29,6 +32,9 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/appointment-detail" element={<AppointmentDetail />} />
         <Route path="/health-resources" element={<HealthResources />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:id" element={<BlogDetail />} />
         {/* <Route path="/edit-appointment" element={<EditAppointment />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
