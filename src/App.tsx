@@ -12,6 +12,7 @@ import Login from './componenets/auth/Login';
 import Signup from './componenets/auth/Signup';
 import Services from './componenets/pages/Services';
 import AppointmentDetail from './componenets/pages/AppointmentDetail';
+import HealthResources from './componenets/pages/HealthResources';
 // import EditAppointment from './componenets/pages/EditAppointment';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/doctors" element={<Doctors />} />
         <Route path="/services" element={<Services />} />
         <Route path="/appointment-detail" element={<AppointmentDetail />} />
+        <Route path="/health-resources" element={<HealthResources />} />
         {/* <Route path="/edit-appointment" element={<EditAppointment />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
