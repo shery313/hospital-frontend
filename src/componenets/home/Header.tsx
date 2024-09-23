@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   return (
     <header className="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="flex justify-between items-center py-2 px-4 bg-blue-700 text-sm">
+      <div className="flex justify-between items-center py-2 md:px-4 px-2 bg-blue-700 text-xs md:text-sm">
         <div className="flex space-x-6">
           <div className="flex items-center">
             <FaPhoneAlt className="mr-2" />
