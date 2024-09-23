@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaPhoneAlt, FaEnvelope, FaUserMd, FaCalendarAlt, FaBars, FaTimes } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaCalendarAlt, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 

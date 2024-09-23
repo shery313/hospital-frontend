@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -59,9 +59,9 @@ const Contact: React.FC = () => {
     }, 1500); // Simulating an API call delay
   };
 
-  const handleRecaptcha = (value: string | null) => {
-    setCaptchaValue(value);
-  };
+  // const handleRecaptcha = (value: string | null) => {
+  //   setCaptchaValue(value);
+  // };
 
   return (
     <div className="flex flex-col lg:flex-row p-6 bg-white">
@@ -152,12 +152,12 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Google reCAPTCHA */}
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <ReCAPTCHA
               sitekey="your_site_key" // Replace with your actual reCAPTCHA site key
               onChange={handleRecaptcha}
             />
-          </div>
+          </div> */}
 
           <button
             type="submit"

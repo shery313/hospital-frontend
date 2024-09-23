@@ -1,8 +1,10 @@
 import React from "react";
-import { FaHeartbeat, FaStethoscope, FaUserMd, FaAmbulance } from "react-icons/fa";
+import { FaHeartbeat, FaStethoscope, FaUserMd } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
 
 // Animation Variants
 const fadeInUp = {
@@ -50,7 +52,7 @@ const testimonialSliderSettings = {
 
 const Home: React.FC = () => {
   return (
-    <motion.div initial="hidden" animate="visible">
+    <motion.div initial="hidden" animate="visible" variants={fadeIn}>
       {/* Hero Section with Slider */}
       <section className="relative h-fit">
         <Slider {...imageSliderSettings} className="w-full h-full">
@@ -58,16 +60,15 @@ const Home: React.FC = () => {
             { imgSrc: "hospital.jpg", alt: "Hospital Front View" },
             { imgSrc: "hospital1.jpg", alt: "ICU Facilities" },
             { imgSrc: "hospital2.jpg", alt: "Modern Operation Theater" },
-            // { imgSrc: "hospital3.jpg", alt: "Private Rooms" },
           ].map((image, index) => (
-            <div key={index} className="relative h-full">
+            <motion.div key={index} className="relative h-full" variants={fadeIn}>
               <img src={image.imgSrc} alt={image.alt} className="object-cover w-full h-full" />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                <motion.h1 className="text-white hover:text-blue-500 text-center text-3xl  md:text-6xl font-bold" variants={fadeInUp}>
+                <motion.h1 className="text-white hover:text-blue-500 text-center text-3xl md:text-6xl font-bold" variants={fadeInUp}>
                   Your Health, Our Priority
                 </motion.h1>
               </div>
-            </div>
+            </motion.div>
           ))}
         </Slider>
       </section>
@@ -75,7 +76,7 @@ const Home: React.FC = () => {
       {/* Services Section */}
       <section className="py-16 bg-gray-50">
         <motion.div className="container mx-auto px-6 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-          <h2 className="text-3xl font-bold mb-8">Our Services</h2>
+          <motion.h2 className="text-3xl font-bold mb-8" variants={fadeInUp}>Our Services</motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -111,7 +112,7 @@ const Home: React.FC = () => {
       {/* Doctor Section */}
       <section className="py-16 bg-gray-50">
         <motion.div className="container mx-auto px-6 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-          <h2 className="text-3xl font-bold mb-8">Doctor & Specialist Directory</h2>
+          <motion.h2 className="text-3xl font-bold mb-8" variants={fadeInUp}>Doctor & Specialist Directory</motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
@@ -148,27 +149,27 @@ const Home: React.FC = () => {
       </section>
 
       {/* Emergency Information Section */}
-      <section className="py-16 bg-gray-50">
+      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">Emergency Information</h2>
           <p className="text-lg mb-4">For emergencies, contact us immediately!</p>
           <p className="text-xl font-bold mb-2">Emergency Phone: 123-456-7890</p>
           <p className="text-lg">Emergency Room Wait Times: <span className="text-red-500">15 minutes</span></p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Health Resources Section */}
-      <section className="py-16 bg-gray-50">
-        <motion.div className="container mx-auto px-6 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+        <motion.div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">Health Resources</h2>
           <Link to="/health-resources" className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-all">
             Learn More
           </Link>
         </motion.div>
-      </section>
+      </motion.section>
 
       {/* Testimonials Section */}
-      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
+      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">What Our Patients Say</h2>
           <Slider {...testimonialSliderSettings} className="w-full">
@@ -192,22 +193,14 @@ const Home: React.FC = () => {
               <div key={index} className="relative p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all">
                 <motion.div variants={fadeInUp}>
                   <img src={testimonial.imgSrc} alt={testimonial.name} className="w-16 h-16 rounded-full mx-auto mb-4" />
-                  <p className="text-gray-700 mb-4 italic">"{testimonial.quote}"</p>
-                  <p className="text-blue-500 font-bold">- {testimonial.name}</p>
+                  <p className="text-lg italic mb-2">"{testimonial.quote}"</p>
+                  <p className="font-semibold">{testimonial.name}</p>
                 </motion.div>
               </div>
             ))}
           </Slider>
         </div>
       </motion.section>
-
-      {/* Call to Action Section */}
-      <section className="py-16 bg-blue-500 text-white text-center">
-        <h2 className="text-3xl font-bold mb-4">Book an Appointment Today!</h2>
-        <Link to="/appointment" className="bg-white text-blue-500 px-6 py-3 rounded-full hover:bg-gray-200 transition-all">
-          Schedule Now
-        </Link>
-      </section>
     </motion.div>
   );
 };
