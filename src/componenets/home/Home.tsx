@@ -39,33 +39,21 @@ const imageSliderSettings = {
   pauseOnHover: true,
 };
 
-const testimonialSliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  pauseOnHover: true,
-};
-
 const Home: React.FC = () => {
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeIn}>
       {/* Hero Section with Slider */}
-      <section className="relative h-fit">
-        <Slider {...imageSliderSettings} className="w-full h-full">
+      <section className="relative overflow-hidden">
+        <Slider {...imageSliderSettings} className="w-full">
           {[
             { imgSrc: "hospital.jpg", alt: "Hospital Front View" },
             { imgSrc: "hospital1.jpg", alt: "ICU Facilities" },
             { imgSrc: "hospital2.jpg", alt: "Modern Operation Theater" },
           ].map((image, index) => (
-            <motion.div key={index} className="relative h-full" variants={fadeIn}>
-              <img src={image.imgSrc} alt={image.alt} className="object-cover w-full h-full" />
+            <motion.div key={index} className="relative">
+              <img src={image.imgSrc} alt={image.alt} className="object-cover w-full h-auto" />
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
                 <motion.h1 className="text-white hover:text-blue-500 text-center text-3xl md:text-6xl font-bold" variants={fadeInUp}>
-                  {/* Your Health, Our Priority */}
                   CATHOLIC HOSPITAL WAMBA
                 </motion.h1>
               </div>
@@ -173,7 +161,7 @@ const Home: React.FC = () => {
       <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">What Our Patients Say</h2>
-          <Slider {...testimonialSliderSettings} className="w-full">
+          <Slider {...imageSliderSettings} className="w-full">
             {[
               {
                 quote: "The care and service at this hospital were exceptional. I always felt in safe hands.",
