@@ -32,6 +32,11 @@ import PhysiotherapyServicesDetail from './componenets/services/Physiotherapy';
 import LaboratoryServicesDetail from './componenets/services/LaboratoryDetail';
 import SurgeryServicesDetail from './componenets/services/SurgeryDetial';
 import DentistDetail from './componenets/services/DentistDetial';
+import Faq from './componenets/plugins/Faq';
+import NewsAndEvents from './componenets/plugins/NewsAndEvents';
+import DetailPage from './componenets/plugins/DetailPage';
+import PrivacyPolicy from './componenets/plugins/PrivacyPolicy';
+import TermsOfService from './componenets/plugins/TermsServices';
 
 function App() {
   return (
@@ -62,8 +67,13 @@ function App() {
         <Route path="/services/physiotherapy" element={<PhysiotherapyServicesDetail />} />
         <Route path="/services/laboratory" element={<LaboratoryServicesDetail />} />
         <Route path="/services/surgery" element={<SurgeryServicesDetail />} />
+        <Route path="/faqs" element={<Faq />} />
+        <Route path="/news-events" element={<NewsAndEvents />} />
+        <Route path="/news-and-events/:id" element={<DetailPage/>} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
         <Route path="/blogs/:id" element={<BlogDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

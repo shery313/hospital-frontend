@@ -84,9 +84,12 @@ const Home: React.FC = () => {
         <Slider {...imageSliderSettings} className="w-full">
           {[ 
             { imgSrc: "hospital.jpg", alt: "Hospital Front View" }, 
-            { imgSrc: "hospital1.jpg", alt: "ICU Facilities" }, 
-            { imgSrc: "hospital2.jpg", alt: "Modern Operation Theater" }, 
-            { imgSrc: "nurse.jpg", alt: "Nurses" }, 
+            { imgSrc: "hospital20.jpg", alt: "ICU Facilities" }, 
+            { imgSrc: "hospital4.jpg", alt: "Modern Operation Theater" }, 
+            { imgSrc: "hospital12.jpg", alt: "Nurses" }, 
+            { imgSrc: "hospital11.jpg", alt: "Nurses" },  
+            { imgSrc: "hospital9.jpg", alt: "Nurses" },  
+            { imgSrc: "hospital14.jpg", alt: "Nurses" },  
           ].map((image, index) => (
             <motion.div key={index} className="relative flex justify-center items-center">
               {/* Image as Foreground */}
