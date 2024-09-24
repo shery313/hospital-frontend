@@ -37,7 +37,7 @@ const imageSliderSettings = {
   autoplay: true,
   autoplaySpeed: 3000,
   pauseOnHover: true,
-  adaptiveHeight: true, // Adjusts the height based on content
+  adaptiveHeight: true,
 };
 
 const doctorSliderSettings = {
@@ -53,7 +53,7 @@ const doctorSliderSettings = {
 const Home: React.FC = () => {
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeIn}>
-      {/* Hero Section with Slider */}
+      {/* Hero Section with Foreground Images */}
       <section className="relative overflow-hidden">
         <Slider {...imageSliderSettings} className="w-full">
           {[
@@ -61,17 +61,24 @@ const Home: React.FC = () => {
             { imgSrc: "hospital1.jpg", alt: "ICU Facilities" },
             { imgSrc: "hospital2.jpg", alt: "Modern Operation Theater" },
           ].map((image, index) => (
-            <motion.div key={index} className="relative">
+            <motion.div key={index} className="relative flex justify-center items-center">
+              {/* Image as Foreground */}
               <img src={image.imgSrc} alt={image.alt} className="object-cover w-full h-auto" />
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                <motion.h1 className="text-white hover:text-blue-500 text-center text-3xl md:text-6xl font-bold" variants={fadeInUp}>
-                Catholic diocese of Maralal Wamba Hospital
-                </motion.h1>
-              </div>
             </motion.div>
           ))}
         </Slider>
       </section>
+
+      {/* Hospital Information Section */}
+      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
+        <div className="container mx-auto px-6 text-center">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4">Catholic Diocese of Maralal Wamba Hospital</h1>
+          <p className="text-lg md:text-xl text-gray-700">
+            Welcome to the Catholic Diocese of Maralal Wamba Hospital, where we provide top-quality healthcare services
+            to our community with state-of-the-art medical equipment and expert doctors.
+          </p>
+        </div>
+      </motion.section>
 
       {/* Services Section */}
       <section className="py-16 bg-gray-50">
@@ -185,26 +192,21 @@ const Home: React.FC = () => {
           <Slider {...imageSliderSettings} className="w-full">
             {[
               {
-                quote: "The care and service at this hospital were exceptional. I always felt in safe hands.",
-                name: "Jane Doe",
+                quote: "The care and service at this hospital are exceptional.",
+                name: "John Doe",
                 imgSrc: "docter.jpg",
               },
               {
-                quote: "Doctors and nurses were always attentive and made sure I was comfortable.",
-                name: "John Smith",
-                imgSrc: "docter.jpg",
-              },
-              {
-                quote: "Excellent facilities with top-notch healthcare services.",
-                name: "Emily Johnson",
+                quote: "I felt so much better after my surgery, thanks to the great staff here.",
+                name: "Jane Smith",
                 imgSrc: "docter.jpg",
               },
             ].map((testimonial, index) => (
-              <motion.div key={index} className="p-6 bg-white rounded-lg shadow-md">
-                <img src={testimonial.imgSrc} alt={testimonial.name} className="w-20 h-20 rounded-full mx-auto mb-4" />
-                <p className="italic mb-2">"{testimonial.quote}"</p>
-                <h4 className="font-semibold">{testimonial.name}</h4>
-              </motion.div>
+              <div key={index} className="text-center">
+                <img src={testimonial.imgSrc} alt={testimonial.name} className="w-24 h-24 rounded-full mx-auto mb-4" />
+                <p className="text-xl italic mb-4">"{testimonial.quote}"</p>
+                <p className="text-lg font-semibold">{testimonial.name}</p>
+              </div>
             ))}
           </Slider>
         </div>
