@@ -1,5 +1,5 @@
 import React from "react";
-import { MdArrowBack, MdArrowForward } from "react-icons/md";
+// import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import Slider from "react-slick";
 
 // Sample team members array
@@ -71,27 +71,9 @@ const TeamSection: React.FC = () => {
 };
 
 // Custom next arrow
-const SampleNextArrow = (props: any) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} absolute right-5 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow`}
-      style={{ ...style }}
-      onClick={onClick}
-    />
-  );
-};
+
 
 // Custom previous arrow
-const SamplePrevArrow = (props: any) => {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} absolute left-5 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow`}
-      style={{ ...style }}
-      onClick={onClick}
-    />
-  );
-};
+
 
 export default TeamSection;
