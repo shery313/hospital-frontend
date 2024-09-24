@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaCalendarAlt, FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { PiFacebookLogoThin } from "react-icons/pi";
 
 const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -38,7 +39,7 @@ const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => 
           {!isAuthenticated ? (
             <>
               <Link to="/login" className="hover:text-gray-300 transition-colors">Login</Link>
-              <Link to="/signup" className="hover:text-gray-300 transition-colors">Sign Up</Link>
+              <Link to="/signup" className="hover:text-gray-300 transition-colors">Signup</Link>
             </>
           ) : (
             <div className="relative">
