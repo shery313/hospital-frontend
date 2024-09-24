@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
         {/* Contact Information */}
         <div>
           <h4 className="text-lg font-bold mb-4">Contact Us</h4>
-          <p className="mb-2">123 Hospital Street, City, Country</p>
-          <p className="mb-2">Phone: +1 234 567 890</p>
-          <p>Email: contact@hospital.com</p>
+          <p className="mb-2">P.O.Box 350 – 20600, MARALAL, KENYA - Wamba town</p>
+          <p className="mb-2">Phone: +254718959781</p>
+          <p>Email: Catholicwambahospital@gmail.com</p>
         </div>
 
         {/* Useful Links */}

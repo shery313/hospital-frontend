@@ -104,9 +104,9 @@ const Services: React.FC = () => {
       </div>
 
       {/* Side Image */}
-      <div className="hidden md:block md:w-1/2 h-full">
+      <div className="hidden md:block md:w-1/2 h-full md:mt-20">
         <motion.img
-          src='docter.jpg' // Replace with your actual image path
+          src='services.jpg' // Replace with your actual image path
           alt="Services"
           className="w-full h-full object-cover"
           initial={{ opacity: 0 }}

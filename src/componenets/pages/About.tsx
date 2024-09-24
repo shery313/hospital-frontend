@@ -1,7 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation, Pagination } from "swiper"; // Import Navigation module
 import "swiper/css";
+import { Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Breadcrumbs from "./BreadCrumbs"; // Adjust the import path as necessary
@@ -89,6 +92,8 @@ const About: React.FC = () => {
           loop={true}
           autoplay={{ delay: 3000 }} // Auto slide every 3 seconds
           pagination={{ clickable: true }} // Enable pagination dots
+          navigation // Enable navigation arrows
+          modules={[Navigation, Pagination]} // Include the necessary modules
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>

@@ -4,7 +4,35 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from 'react-slick';
+import Slider from "react-slick";
+
+// Custom Arrow Components with Increased Size
+const CustomPrevArrow = (props: any) => {
+  const { className, onClick } = props;
+  return (
+    <div className={`${className} arrow-prev`} onClick={onClick} style={arrowStyle}>
+      &#10094; {/* Left Arrow Symbol */}
+    </div>
+  );
+};
+
+const CustomNextArrow = (props: any) => {
+  const { className, onClick } = props;
+  return (
+    <div className={`${className} arrow-next`} onClick={onClick} style={arrowStyle}>
+      &#10095; {/* Right Arrow Symbol */}
+    </div>
+  );
+};
+
+// Arrow Styles
+const arrowStyle = {
+  fontSize: "36px", // Increase the font size of arrows
+  color: "blue", // Set arrow color (black)
+  zIndex: 1, // Ensure arrows are above other elements
+  cursor: "pointer", // Change cursor to pointer on hover
+  padding: "10px", // Add some padding
+};
 
 // Animation Variants
 const fadeInUp = {
@@ -38,6 +66,8 @@ const imageSliderSettings = {
   autoplaySpeed: 3000,
   pauseOnHover: true,
   adaptiveHeight: true,
+  prevArrow: <CustomPrevArrow />,
+  nextArrow: <CustomNextArrow />,
 };
 
 const doctorSliderSettings = {
@@ -48,6 +78,9 @@ const doctorSliderSettings = {
   slidesToScroll: 1,
   autoplay: false,
   adaptiveHeight: true,
+  prevArrow: <CustomPrevArrow />,
+  nextArrow: <CustomNextArrow />,
+  
 };
 
 const Home: React.FC = () => {
@@ -175,41 +208,14 @@ const Home: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Health Resources Section */}
+      {/* Resources Section */}
       <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
         <motion.div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-8">Health Resources</h2>
-          <Link to="/health-resources" className="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-all">
-            Learn More
+          <h2 className="text-3xl font-bold mb-8">Explore Our Resources</h2>
+          <Link to="/health-resources" className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition-all">
+            Explore Our Resources
           </Link>
         </motion.div>
-      </motion.section>
-
-      {/* Testimonials Section */}
-      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-8">What Our Patients Say</h2>
-          <Slider {...imageSliderSettings} className="w-full">
-            {[
-              {
-                quote: "The care and service at this hospital are exceptional.",
-                name: "John Doe",
-                imgSrc: "patient2.jpeg",
-              },
-              {
-                quote: "I felt so much better after my surgery, thanks to the great staff here.",
-                name: "Jane Smith",
-                imgSrc: "patient1.jpeg",
-              },
-            ].map((testimonial, index) => (
-              <div key={index} className="text-center">
-                <img src={testimonial.imgSrc} alt={testimonial.name} className="w-24 h-24 rounded-full mx-auto mb-4" />
-                <p className="text-xl italic mb-4">"{testimonial.quote}"</p>
-                <p className="text-lg font-semibold">{testimonial.name}</p>
-              </div>
-            ))}
-          </Slider>
-        </div>
       </motion.section>
     </motion.div>
   );

@@ -22,11 +22,11 @@ const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => 
         <div className="flex md:space-x-6 space-x-3">
           <div className="flex items-center">
             <FaPhoneAlt className="md:mr-2 mr-1" />
-            <span>+1 234 567 890</span>
+            <span>+254718959781</span>
           </div>
           <div className="flex items-center">
             <FaEnvelope className="md:mr-2 mr-1" />
-            <span>contact@hospital.com</span>
+            <span>Catholicwambahospital@gmail.com</span>
           </div>
         </div>
         <div className="flex md:space-x-4 space-x-2">
