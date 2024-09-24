@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { FaPhoneAlt, FaEnvelope, FaCalendarAlt, FaBars, FaTimes } from "react-icons/fa";
+import { FaPhoneAlt, FaEnvelope, FaCalendarAlt, FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isUserFeaturesOpen, setIsUserFeaturesOpen] = useState(false);
   const location = useLocation();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleUserFeatures = () => {
+    setIsUserFeaturesOpen(!isUserFeaturesOpen);
   };
 
   const navItems = isAuthenticated
@@ -26,7 +31,7 @@ const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => 
           </div>
           <div className="flex items-center">
             <FaEnvelope className="md:mr-2 mr-1" />
-            <span>Catholicwambahospital@gmail.com</span>
+            <span>contact@hospital.com</span>
           </div>
         </div>
         <div className="flex md:space-x-4 space-x-2">
@@ -36,7 +41,23 @@ const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => 
               <Link to="/signup" className="hover:text-gray-300 transition-colors">Sign Up</Link>
             </>
           ) : (
-            <Link to="/profile" className="hover:text-gray-300 transition-colors">Profile</Link>
+            <div className="relative">
+              <button onClick={toggleUserFeatures} className="hover:text-gray-300 transition-colors">
+                <FaUser size={20} />
+              </button>
+              {isUserFeaturesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  className="absolute right-0 bg-white text-blue-900 shadow-lg rounded-md mt-2 w-40"
+                >
+                  <Link to="/profile" className="block px-4 py-2 hover:bg-blue-100">Profile</Link>
+                  <Link to="/settings" className="block px-4 py-2 hover:bg-blue-100">Settings</Link>
+                  <Link to="/logout" className="block px-4 py-2 hover:bg-blue-100">Logout</Link>
+                </motion.div>
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -101,7 +122,7 @@ const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => 
             ))}
             <Link
               to="/appointment"
-              className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 w-full text-center transition-all duration-300 ease-in-out"
+              className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 w-fit text-center transition-all duration-300 ease-in-out"
               onClick={toggleMobileMenu}
             >
               <FaCalendarAlt className="inline mr-2" />
