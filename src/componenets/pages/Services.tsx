@@ -60,7 +60,9 @@ const Services: React.FC = () => {
     { label: "Home", path: "/" },
     { label: "Services", path: "/services" },
   ];
-
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div className="flex flex-col md:flex-row bg-gray-50">
       
@@ -90,7 +92,7 @@ const Services: React.FC = () => {
                 <h2 className="text-2xl font-semibold mb-2 ml-2">{service.title}</h2>
               </div>
               <p className="text-gray-600">{service.description}</p>
-              <Link to={service.link}>
+              <Link onClick={handleScrollToTop} to={service.link}>
                 <motion.button
                   className="mt-4 py-2 px-4 bg-blue-600 text-white rounded-md shadow transition hover:bg-blue-700"
                   whileHover={{ scale: 1.05 }}

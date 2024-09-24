@@ -3,6 +3,9 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"
 import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
+    const handleScrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
   return (
     <footer className="bg-blue-900 text-white py-10">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
@@ -16,25 +19,25 @@ const Footer: React.FC = () => {
 
         {/* Useful Links */}
         <div>
-          <h4 className="text-lg font-bold mb-4">Useful Links</h4>
+          <h4 className="text-lg font-bold mb-4">Quick Links</h4>
           <ul className="space-y-2">
             <li>
-              <Link to="/about" className="hover:text-gray-300 transition-colors">
+              <Link onClick={handleScrollToTop} to="/about-us" className="hover:text-gray-300 transition-colors">
                 About Us
               </Link>
             </li>
             <li>
-              <Link to="/services" className="hover:text-gray-300 transition-colors">
+              <Link to="/services" onClick={handleScrollToTop} className="hover:text-gray-300 transition-colors">
                 Services
               </Link>
             </li>
             <li>
-              <Link to="/doctors" className="hover:text-gray-300 transition-colors">
+              <Link to="/doctors"  onClick={handleScrollToTop} className="hover:text-gray-300 transition-colors">
                 Doctors
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-gray-300 transition-colors">
+              <Link to="/contact" onClick={handleScrollToTop} className="hover:text-gray-300 transition-colors">
                 Contact Us
               </Link>
             </li>

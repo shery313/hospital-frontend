@@ -14,6 +14,9 @@ const departments = [
 ];
 
 const Departments: React.FC = () => {
+    const handleScrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
 //   const [selectedDepartment, setSelectedDepartment] = useState<number | null>(null);
 
 //   const toggleMoreInfo = (index: number) => {
@@ -53,7 +56,7 @@ const breadcrumbItems = [
             <p className="text-lg mt-2">{department.description}</p>
 
             <div className="mt-4">
-              <Link to={`/services/${department.id}`} className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2">
+              <Link onClick={handleScrollToTop} to={`/services/${department.id}`} className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2">
                 Learn More
               </Link>
               <Link to="/contact" className="bg-green-500 text-white px-4 py-2 rounded-lg">

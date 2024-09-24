@@ -9,6 +9,9 @@ const iconMapping: Record<string, React.ReactNode> = {
 };
 
 const Breadcrumbs: React.FC<{ items: { label: string; path: string }[] }> = ({ items }) => {
+    const handleScrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
   return (
     <nav className="mb-4">
       <ul className="flex space-x-2">
@@ -17,7 +20,7 @@ const Breadcrumbs: React.FC<{ items: { label: string; path: string }[] }> = ({ i
             {iconMapping[item.label.toLowerCase()] && (
               <span className="mr-1">{iconMapping[item.label.toLowerCase()]}</span>
             )}
-            <Link to={item.path} className="hover:text-blue-500 transition-colors">
+            <Link onClick={handleScrollToTop} to={item.path} className="hover:text-blue-500 transition-colors">
               {item.label}
             </Link>
             {index < items.length - 1 && <span className="mx-1"> &gt; </span>} {/* Separator */}

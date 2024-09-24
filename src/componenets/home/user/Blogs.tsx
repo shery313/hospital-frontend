@@ -19,6 +19,9 @@ const Blogs: React.FC = () => {
     { label: "Home", path: "/" },
     { label: "Blogs", path: "/blogs" },
   ];
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -93,7 +96,7 @@ const Blogs: React.FC = () => {
             whileHover={{ scale: 1.03 }}
             className="border rounded-md shadow-lg overflow-hidden transition-transform duration-300"
           >
-            <Link to={`/blogs/${post.id}`}>
+            <Link onClick={handleScrollToTop} to={`/blogs/${post.id}`}>
               <img
                 src={post.image}
                 alt={post.title}

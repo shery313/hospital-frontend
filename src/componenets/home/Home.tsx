@@ -39,7 +39,9 @@ const CustomNextArrow = (props: any) => (
     </button>
   </div>
 );
-
+const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 const CustomPrevArrow = (props: any) => (
   <div {...props} className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
     <button className="bg-blue-500 text-white font-bold  p-2 rounded-full hover:bg-blue-600 transition-all">
@@ -83,6 +85,7 @@ const Home: React.FC = () => {
             { imgSrc: "hospital.jpg", alt: "Hospital Front View" }, 
             { imgSrc: "hospital1.jpg", alt: "ICU Facilities" }, 
             { imgSrc: "hospital2.jpg", alt: "Modern Operation Theater" }, 
+            { imgSrc: "nurse.jpg", alt: "Nurses" }, 
           ].map((image, index) => (
             <motion.div key={index} className="relative flex justify-center items-center">
               {/* Image as Foreground */}
@@ -133,7 +136,7 @@ const Home: React.FC = () => {
                 className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2"
                 variants={fadeInUp}
               >
-                <Link to={service.link} className="flex flex-col items-center">
+                <Link to={service.link} onClick={handleScrollToTop} className="flex flex-col items-center">
                   {service.icon}
                   <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
                   <p className="text-gray-700">{service.description}</p>
@@ -174,7 +177,7 @@ const Home: React.FC = () => {
                 className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2"
                 variants={fadeInUp}
               >
-                <Link to={doctor.profileLink} className="flex flex-col items-center">
+                <Link to={doctor.profileLink} onScroll={handleScrollToTop} className="flex flex-col items-center">
                   <img src={doctor.imgSrc} alt={doctor.name} className="w-32 h-32 rounded-full mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">{doctor.name}</h3>
                   <p className="text-gray-600">{doctor.specialty}</p>
@@ -202,7 +205,7 @@ const Home: React.FC = () => {
       <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">Health Resources</h2>
-          <Link to="/health-resources" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all">
+          <Link onClick={handleScrollToTop} to="/health-resources" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all">
             Explore Our Health Resources
           </Link>
         </div>
