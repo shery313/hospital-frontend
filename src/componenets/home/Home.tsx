@@ -194,12 +194,12 @@ const Home: React.FC = () => {
               {
                 quote: "The care and service at this hospital are exceptional.",
                 name: "John Doe",
-                imgSrc: "docter.jpg",
+                imgSrc: "patient2.jpeg",
               },
               {
                 quote: "I felt so much better after my surgery, thanks to the great staff here.",
                 name: "Jane Smith",
-                imgSrc: "docter.jpg",
+                imgSrc: "patient1.jpeg",
               },
             ].map((testimonial, index) => (
               <div key={index} className="text-center">

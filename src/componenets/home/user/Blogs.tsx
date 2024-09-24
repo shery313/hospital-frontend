@@ -28,28 +28,28 @@ const Blogs: React.FC = () => {
           title: "The Importance of Regular Health Check-Ups",
           excerpt: "Discover why regular health check-ups are crucial for maintaining good health...",
           date: "2024-09-20",
-          image: "docter.jpg",
+          image: "healthcare.avif",
         },
         {
           id: 2,
           title: "Healthy Eating: A Guide to Nutrition",
           excerpt: "Learn how to maintain a balanced diet and the importance of nutrition in our lives...",
           date: "2024-09-15",
-          image: "patrick.jpg",
+          image: "healthcare.avif",
         },
         {
           id: 3,
           title: "Managing Stress: Tips and Techniques",
           excerpt: "Explore effective ways to manage stress and improve your mental health...",
           date: "2024-09-10",
-          image: "docter.jpg",
+          image: "healthcare.avif",
         },
         {
           id: 4,
           title: "Understanding Your Medical Tests",
           excerpt: "Get insights into common medical tests and their significance...",
           date: "2024-09-05",
-          image: "patrick.jpg",
+          image: "healthcare.avif",
         },
       ];
       setBlogPosts(posts);

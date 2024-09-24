@@ -26,6 +26,11 @@ import PediatricsDetail from './componenets/services/PediatricsDetail';
 import GeneralMedicineDetail from './componenets/services/GeneralMedicineDetail';
 import SpecialistCareDetail from './componenets/services/SpecialistCareDetail';
 import DoctorProfile from './componenets/services/DoctorProfile';
+// import RadiologyService from './componenets/services/RadiologyServicec';
+import RadiologyDetail from './componenets/services/RadiologyServicec';
+import PhysiotherapyServicesDetail from './componenets/services/Physiotherapy';
+import LaboratoryServicesDetail from './componenets/services/LaboratoryDetail';
+import SurgeryServicesDetail from './componenets/services/SurgeryDetial';
 
 function App() {
   return (
@@ -47,10 +52,14 @@ function App() {
         <Route path="/services/cardiology" element={<CardiologyDetail />} />
         <Route path="/services/oncology" element={<OncologyDetail />} />
         <Route path="/services/pediatrics" element={<PediatricsDetail />} />
+        <Route path="/services/radiology" element={<RadiologyDetail />} />
         {/* <Route path="/doctors:doctorId" element={<DoctorProfile />} /> */}
         <Route path="/doctors/:doctorId" element={<DoctorProfile/>} />
         <Route path="/services/general-medicine" element={<GeneralMedicineDetail />} />
         <Route path="/services/specialist-care" element={<SpecialistCareDetail />} />
+        <Route path="/services/physiotherapy" element={<PhysiotherapyServicesDetail />} />
+        <Route path="/services/laboratory" element={<LaboratoryServicesDetail />} />
+        <Route path="/services/surgery" element={<SurgeryServicesDetail />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogs/:id" element={<BlogDetail />} />

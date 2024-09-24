@@ -1,30 +1,66 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaAmbulance, FaHeartbeat, FaChild, FaMixer, FaRadiation, FaFlask } from "react-icons/fa";
+import { FaAmbulance, FaHeartbeat, FaChild, FaMixer, FaRadiation, FaFlask, FaWheelchair } from "react-icons/fa"; // Added FaWheelchair for Physiotherapy
 import Breadcrumbs from "./BreadCrumbs";
+import { Link } from "react-router-dom"; // Assuming you're using react-router for navigation
 
 const servicesList = [
-  { title: "Emergency Care", description: "24/7 emergency services with immediate assistance.", icon: <FaAmbulance className="text-blue-600 text-3xl mb-2" /> },
-  { title: "Cardiology", description: "Comprehensive heart care and specialized treatments.", icon: <FaHeartbeat className="text-blue-600 text-3xl mb-2" /> },
-  { title: "Pediatrics", description: "Expert care for infants, children, and adolescents.", icon: <FaChild className="text-blue-600 text-3xl mb-2" /> },
-  { title: "Surgery", description: "State-of-the-art surgical procedures with experienced surgeons.", icon: <FaMixer className="text-blue-600 text-3xl mb-2" /> },
-  { title: "Radiology", description: "Advanced imaging services for accurate diagnosis.", icon: <FaRadiation className="text-blue-600 text-3xl mb-2" /> },
-  { title: "Laboratory Services", description: "Comprehensive lab tests and analysis.", icon: <FaFlask className="text-blue-600 text-3xl mb-2" /> },
-  // Add more services as needed
+  { 
+    title: "Emergency Care", 
+    description: "24/7 emergency services with immediate assistance.", 
+    icon: <FaAmbulance className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/emergency" 
+  },
+  { 
+    title: "Cardiology", 
+    description: "Comprehensive heart care and specialized treatments.", 
+    icon: <FaHeartbeat className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/cardiology" 
+  },
+  { 
+    title: "Pediatrics", 
+    description: "Expert care for infants, children, and adolescents.", 
+    icon: <FaChild className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/pediatrics" 
+  },
+  { 
+    title: "Surgery", 
+    description: "State-of-the-art surgical procedures with experienced surgeons.", 
+    icon: <FaMixer className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/surgery" 
+  },
+  { 
+    title: "Radiology", 
+    description: "Advanced imaging services for accurate diagnosis.", 
+    icon: <FaRadiation className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/radiology" 
+  },
+  { 
+    title: "Laboratory Services", 
+    description: "Comprehensive lab tests and analysis.", 
+    icon: <FaFlask className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/laboratory" 
+  },
+  { 
+    title: "Physiotherapy", 
+    description: "Rehabilitation and pain management with expert physiotherapists.", 
+    icon: <FaWheelchair className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/physiotherapy" // Added Physiotherapy link
+  },
 ];
 
 const Services: React.FC = () => {
-    const breadcrumbItems = [
-        { label: "Home", path: "/" },
-        { label: "Services", path: "/services" },
-      ];
-    
-    return (
+  const breadcrumbItems = [
+    { label: "Home", path: "/" },
+    { label: "Services", path: "/services" },
+  ];
+
+  return (
     <div className="flex flex-col md:flex-row bg-gray-50">
-        
+      
       {/* Services List */}
       <div className="w-full md:w-1/2 p-8 flex flex-col justify-center">
-      <Breadcrumbs items={breadcrumbItems}/>
+        <Breadcrumbs items={breadcrumbItems} />
         <motion.h1
           className="text-4xl font-bold mb-8 text-center text-blue-600"
           initial={{ opacity: 0, y: -50 }}
@@ -48,12 +84,14 @@ const Services: React.FC = () => {
                 <h2 className="text-2xl font-semibold mb-2 ml-2">{service.title}</h2>
               </div>
               <p className="text-gray-600">{service.description}</p>
-              <motion.button
-                className="mt-4 py-2 px-4 bg-blue-600 text-white rounded-md shadow transition hover:bg-blue-700"
-                whileHover={{ scale: 1.05 }}
-              >
-                Learn More
-              </motion.button>
+              <Link to={service.link}>
+                <motion.button
+                  className="mt-4 py-2 px-4 bg-blue-600 text-white rounded-md shadow transition hover:bg-blue-700"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  Learn More
+                </motion.button>
+              </Link>
             </motion.div>
           ))}
         </div>

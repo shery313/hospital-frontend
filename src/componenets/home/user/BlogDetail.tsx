@@ -21,7 +21,7 @@ const BlogDetail: React.FC = () => {
     title: "The Importance of Regular Health Check-Ups",
     content: "Regular health check-ups are crucial for maintaining optimal physical and mental well-being. By scheduling annual or bi-annual visits with your healthcare provider, you can prevent health issues, detect hidden problems, and improve overall health outcomes. These routine check-ups enable your doctor to identify risk factors for chronic diseases, monitor existing conditions, and adjust treatment plans accordingly. Moreover, regular health check-ups encourage healthy habits, reduce healthcare costs, and boost quality of life. By investing in preventive care, you can avoid costly medical procedures, minimize lost productivity, and ensure a healthier, happier life. So, prioritize your well-being and schedule your next health check-up today!",
     date: "2024-09-20",
-    image: "/docter.jpg",
+    image: "/healthcare.avif",
   };
 
   return (

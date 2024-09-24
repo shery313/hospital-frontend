@@ -11,7 +11,7 @@ const SpecialistCareDetail: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/path/to/specialist-care-bg.jpg")' }}
+          style={{ backgroundImage: 'url("/specialcare.jpg")' }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center">
           <motion.h1
@@ -68,7 +68,7 @@ const SpecialistCareDetail: React.FC = () => {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="flex justify-center items-center"
             >
-              <img src="docter.jpg" alt="Specialist Care" className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+              <img src="/docter.jpg" alt="Specialist Care" className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
             </motion.div>
           </div>
         </div>

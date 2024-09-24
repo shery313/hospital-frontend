@@ -11,7 +11,7 @@ const GeneralMedicineDetail: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/path/to/general-medicine-bg.jpg")' }}
+          style={{ backgroundImage: 'url("/generalmedicine.jpeg")' }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center">
           <motion.h1

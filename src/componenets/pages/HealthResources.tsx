@@ -43,7 +43,7 @@ const HealthResources: React.FC = () => {
 
   return (
     <motion.div
-      className="container mx-auto px-6 py-16"
+      className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -55,18 +55,20 @@ const HealthResources: React.FC = () => {
         <input
           type="text"
           placeholder="Search Resources..."
-          className="border rounded px-4 py-2 w-full md:w-1/3"
+          className="border rounded px-4 py-2 w-full sm:w-2/3 md:w-1/3 mx-auto"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
 
       {/* Category Filter */}
-      <div className="mb-8 text-center">
+      <div className="mb-8 text-center flex flex-wrap justify-center">
         {categories.map(category => (
           <button
             key={category}
-            className={`mx-2 px-4 py-2 rounded ${selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'} hover:bg-blue-600 hover:text-white transition-all`}
+            className={`mx-2 my-2 px-4 py-2 rounded ${
+              selectedCategory === category ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+            } hover:bg-blue-600 hover:text-white transition-all`}
             onClick={() => setSelectedCategory(category)}
           >
             {category}
@@ -75,7 +77,7 @@ const HealthResources: React.FC = () => {
       </div>
 
       {/* Resources List */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {filteredResources.map((resource, index) => (
           <motion.div
             key={index}
