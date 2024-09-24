@@ -1,10 +1,11 @@
 import React from "react";
-import { FaHeartbeat, FaStethoscope, FaUserMd } from "react-icons/fa";
+import {  FaHeartbeat, FaStethoscope, FaUserMd } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import { MdArrowBack, MdArrowForward } from "react-icons/md";
 
 // Animation Variants
 const fadeInUp = {
@@ -33,16 +34,16 @@ const staggerContainer = {
 // Custom arrow components
 const CustomNextArrow = (props: any) => (
   <div {...props} className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
-    <button className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-all">
-      &gt;
+    <button className="bg-blue-500 text-white p-2 font-bold rounded-full hover:bg-blue-600 transition-all">
+      <MdArrowForward/>
     </button>
   </div>
 );
 
 const CustomPrevArrow = (props: any) => (
   <div {...props} className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
-    <button className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-all">
-      &lt;
+    <button className="bg-blue-500 text-white font-bold  p-2 rounded-full hover:bg-blue-600 transition-all">
+      <MdArrowBack/>
     </button>
   </div>
 );
@@ -223,8 +224,8 @@ const Home: React.FC = () => {
               },
             ].map((testimonial, index) => (
               <div key={index} className="text-center">
-                <img src={testimonial.imgSrc} alt={testimonial.name} className="w-24 h-24 rounded-full mx-auto mb-4" />
-                <p className="text-xl italic mb-4">"{testimonial.quote}"</p>
+                <img src={testimonial.imgSrc} alt={testimonial.name} className="w-24 h-24 rounded-full mx-auto mb-4 md:mt-0 mt-10" />
+                <p className="text-xl italic mb-4 ">"{testimonial.quote}"</p>
                 <p className="text-lg font-semibold">{testimonial.name}</p>
               </div>
             ))}
