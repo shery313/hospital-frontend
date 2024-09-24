@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaAmbulance, FaHeartbeat, FaChild, FaMixer, FaRadiation, FaFlask, FaWheelchair } from "react-icons/fa"; // Added FaWheelchair for Physiotherapy
+import { FaAmbulance, FaHeartbeat, FaChild, FaMixer, FaRadiation, FaFlask, FaWheelchair, FaTooth } from "react-icons/fa"; // Added FaTooth for Dentistry
 import Breadcrumbs from "./BreadCrumbs";
 import { Link } from "react-router-dom"; // Assuming you're using react-router for navigation
 
@@ -45,7 +45,13 @@ const servicesList = [
     title: "Physiotherapy", 
     description: "Rehabilitation and pain management with expert physiotherapists.", 
     icon: <FaWheelchair className="text-blue-600 text-3xl mb-2" />, 
-    link: "/services/physiotherapy" // Added Physiotherapy link
+    link: "/services/physiotherapy" 
+  },
+  { 
+    title: "Dentistry", 
+    description: "Comprehensive dental care and cosmetic dentistry services.", 
+    icon: <FaTooth className="text-blue-600 text-3xl mb-2" />, 
+    link: "/services/dentistry" // Added Dentistry link
   },
 ];
 

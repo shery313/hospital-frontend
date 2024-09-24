@@ -31,6 +31,7 @@ import RadiologyDetail from './componenets/services/RadiologyServicec';
 import PhysiotherapyServicesDetail from './componenets/services/Physiotherapy';
 import LaboratoryServicesDetail from './componenets/services/LaboratoryDetail';
 import SurgeryServicesDetail from './componenets/services/SurgeryDetial';
+import DentistDetail from './componenets/services/DentistDetial';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         <Route path="/services/oncology" element={<OncologyDetail />} />
         <Route path="/services/pediatrics" element={<PediatricsDetail />} />
         <Route path="/services/radiology" element={<RadiologyDetail />} />
+        <Route path="/services/dentistry" element={<DentistDetail />} />
         {/* <Route path="/doctors:doctorId" element={<DoctorProfile />} /> */}
         <Route path="/doctors/:doctorId" element={<DoctorProfile/>} />
         <Route path="/services/general-medicine" element={<GeneralMedicineDetail />} />
