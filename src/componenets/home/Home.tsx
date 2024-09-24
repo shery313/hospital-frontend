@@ -4,35 +4,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-
-// Custom Arrow Components with Increased Size
-const CustomPrevArrow = (props: any) => {
-  const { className, onClick } = props;
-  return (
-    <div className={`${className} arrow-prev`} onClick={onClick} style={arrowStyle}>
-      &#10094; {/* Left Arrow Symbol */}
-    </div>
-  );
-};
-
-const CustomNextArrow = (props: any) => {
-  const { className, onClick } = props;
-  return (
-    <div className={`${className} arrow-next`} onClick={onClick} style={arrowStyle}>
-      &#10095; {/* Right Arrow Symbol */}
-    </div>
-  );
-};
-
-// Arrow Styles
-const arrowStyle = {
-  fontSize: "36px", // Increase the font size of arrows
-  color: "blue", // Set arrow color (black)
-  zIndex: 1, // Ensure arrows are above other elements
-  cursor: "pointer", // Change cursor to pointer on hover
-  padding: "10px", // Add some padding
-};
+import Slider from 'react-slick';
 
 // Animation Variants
 const fadeInUp = {
@@ -56,43 +28,60 @@ const staggerContainer = {
 };
 
 // Slider settings
+
+
+// Custom arrow components
+const CustomNextArrow = (props: any) => (
+  <div {...props} className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
+    <button className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-all">
+      &gt;
+    </button>
+  </div>
+);
+
+const CustomPrevArrow = (props: any) => (
+  <div {...props} className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
+    <button className="bg-blue-500 text-white p-2 rounded-full hover:bg-blue-600 transition-all">
+      &lt;
+    </button>
+  </div>
+);
+
 const imageSliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 3000,
-  pauseOnHover: true,
-  adaptiveHeight: true,
-  prevArrow: <CustomPrevArrow />,
-  nextArrow: <CustomNextArrow />,
-};
-
-const doctorSliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: false,
-  adaptiveHeight: true,
-  prevArrow: <CustomPrevArrow />,
-  nextArrow: <CustomNextArrow />,
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+    adaptiveHeight: true,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
+  };
   
-};
-
+  const doctorSliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    adaptiveHeight: true,
+    nextArrow: <CustomNextArrow />,
+    prevArrow: <CustomPrevArrow />,
+  };
 const Home: React.FC = () => {
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeIn}>
       {/* Hero Section with Foreground Images */}
       <section className="relative overflow-hidden">
         <Slider {...imageSliderSettings} className="w-full">
-          {[
-            { imgSrc: "hospital.jpg", alt: "Hospital Front View" },
-            { imgSrc: "hospital1.jpg", alt: "ICU Facilities" },
-            { imgSrc: "hospital2.jpg", alt: "Modern Operation Theater" },
+          {[ 
+            { imgSrc: "hospital.jpg", alt: "Hospital Front View" }, 
+            { imgSrc: "hospital1.jpg", alt: "ICU Facilities" }, 
+            { imgSrc: "hospital2.jpg", alt: "Modern Operation Theater" }, 
           ].map((image, index) => (
             <motion.div key={index} className="relative flex justify-center items-center">
               {/* Image as Foreground */}
@@ -118,25 +107,25 @@ const Home: React.FC = () => {
         <motion.div className="container mx-auto px-6 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
           <motion.h2 className="text-3xl font-bold mb-8" variants={fadeInUp}>Our Services</motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
+            {[ 
               {
                 icon: <FaHeartbeat className="text-blue-500 text-6xl mb-4 mx-auto" />,
                 title: "Cardiology",
                 description: "Advanced heart care and cardiovascular treatments.",
                 link: "/services/cardiology",
-              },
+              }, 
               {
                 icon: <FaStethoscope className="text-blue-500 text-6xl mb-4 mx-auto" />,
                 title: "General Medicine",
                 description: "Comprehensive healthcare for all ages and conditions.",
                 link: "/services/general-medicine",
-              },
+              }, 
               {
                 icon: <FaUserMd className="text-blue-500 text-6xl mb-4 mx-auto" />,
                 title: "Specialist Care",
                 description: "Access to a wide range of medical specialists.",
                 link: "/services/specialist-care",
-              },
+              }, 
             ].map((service, index) => (
               <motion.div
                 key={index}
@@ -159,25 +148,25 @@ const Home: React.FC = () => {
         <motion.div className="container mx-auto px-6 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
           <motion.h2 className="text-3xl font-bold mb-8" variants={fadeInUp}>Doctor & Specialist Directory</motion.h2>
           <Slider {...doctorSliderSettings} className="w-full">
-            {[
+            {[ 
               {
                 name: "Dr. Patrick Ekuwam",
                 specialty: "Cardiologist",
                 imgSrc: "patrick.jpg",
                 profileLink: "/doctors/patrick-ekuwam",
-              },
+              }, 
               {
                 name: "Dr. Mark Smith",
                 specialty: "General Practitioner",
                 imgSrc: "docter.jpg",
                 profileLink: "/doctors/mark-smith",
-              },
+              }, 
               {
                 name: "Dr. Emily Davis",
                 specialty: "Pediatrician",
                 imgSrc: "docter.jpg",
                 profileLink: "/doctors/emily-davis",
-              },
+              }, 
             ].map((doctor, index) => (
               <motion.div
                 key={index}
@@ -208,14 +197,39 @@ const Home: React.FC = () => {
         </div>
       </motion.section>
 
-      {/* Resources Section */}
+      {/* Health Resources Section */}
       <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-        <motion.div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-8">Explore Our Resources</h2>
-          <Link to="/health-resources" className="bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600 transition-all">
-            Explore Our Resources
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-8">Health Resources</h2>
+          <Link to="/health-resources" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all">
+            Explore Our Health Resources
           </Link>
-        </motion.div>
+        </div>
+      </motion.section>
+      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold mb-8">What Our Patients Say</h2>
+          <Slider {...imageSliderSettings} className="w-full">
+            {[
+              {
+                quote: "The care and service at this hospital are exceptional.",
+                name: "John Doe",
+                imgSrc: "patient2.jpeg",
+              },
+              {
+                quote: "I felt so much better after my surgery, thanks to the great staff here.",
+                name: "Jane Smith",
+                imgSrc: "patient1.jpeg",
+              },
+            ].map((testimonial, index) => (
+              <div key={index} className="text-center">
+                <img src={testimonial.imgSrc} alt={testimonial.name} className="w-24 h-24 rounded-full mx-auto mb-4" />
+                <p className="text-xl italic mb-4">"{testimonial.quote}"</p>
+                <p className="text-lg font-semibold">{testimonial.name}</p>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </motion.section>
     </motion.div>
   );
