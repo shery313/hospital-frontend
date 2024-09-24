@@ -13,6 +13,23 @@ const images = [
   "hospital1.jpg",
   "hospital2.jpg",
   "hospital3.jpg",
+  "hospital4.jpg",
+  "hospital5.jpg",
+  "hospital6.jpg",
+  "hospital7.jpg",
+  "hospital8.jpg",
+  "hospital9.jpg",
+  // "hospital0.jpg",
+  "hospital11.jpg",
+  "hospital12.jpg",
+  "hospital13.jpg",
+  "hospital14.jpg",
+  "hospital15.jpg",
+  "hospital16.jpg",
+  "hospital18.jpg",
+  "hospital17.jpg",
+  "hospital19.jpg", 
+  "hospital20.jpg", 
   // Add paths for all images
 ];
 
@@ -184,7 +201,7 @@ const About: React.FC = () => {
               <img
                 src={image}
                 alt={`Hospital Image ${index + 1}`}
-                className="w-full h-80 object-cover rounded-lg shadow-md"
+                className="w-full h-96  object-cover rounded-lg shadow-md"
               />
             </SwiperSlide>
           ))}
