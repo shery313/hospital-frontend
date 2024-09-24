@@ -59,6 +59,7 @@ const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => 
                 >
                   <Link to="/profile" className="block px-4 py-2 hover:bg-blue-100" onClick={handleScrollToTop}>Profile</Link>
                   <Link to="/settings" className="block px-4 py-2 hover:bg-blue-100" onClick={handleScrollToTop}>Settings</Link>
+                  <Link to="/appointment-detail" className="block px-4 py-2 hover:bg-blue-100" onClick={handleScrollToTop}>My Appointments</Link>
                   <Link to="/logout" className="block px-4 py-2 hover:bg-blue-100" onClick={handleScrollToTop}>Logout</Link>
                 </motion.div>
               )}

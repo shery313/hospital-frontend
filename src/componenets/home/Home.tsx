@@ -1,11 +1,12 @@
 import React from "react";
-import {  FaHeartbeat, FaStethoscope, FaUserMd } from "react-icons/fa";
+import {  FaAmbulance, FaHeartbeat, FaStethoscope, FaUserMd } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
+import PartnerSection from "../pages/PartnerSection";
 
 // Animation Variants
 const fadeInUp = {
@@ -168,7 +169,7 @@ const Home: React.FC = () => {
               {
                 name: "Dr. Emily Davis",
                 specialty: "Pediatrician",
-                imgSrc: "docter.jpg",
+                imgSrc: "docter2.jpg",
                 profileLink: "/doctors/emily-davis",
               }, 
             ].map((doctor, index) => (
@@ -177,7 +178,7 @@ const Home: React.FC = () => {
                 className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2"
                 variants={fadeInUp}
               >
-                <Link to={doctor.profileLink} onScroll={handleScrollToTop} className="flex flex-col items-center">
+                <Link to={doctor.profileLink} onClick={handleScrollToTop} className="flex flex-col items-center">
                   <img src={doctor.imgSrc} alt={doctor.name} className="w-32 h-32 rounded-full mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">{doctor.name}</h3>
                   <p className="text-gray-600">{doctor.specialty}</p>
@@ -196,8 +197,9 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">Emergency Information</h2>
           <p className="text-lg mb-4">For emergencies, contact us immediately!</p>
-          <p className="text-xl font-bold mb-2">Emergency Phone: 123-456-7890</p>
+          <p className="text-xl font-bold mb-2"> <FaAmbulance className="inline text-red-500 h-10 w-10 mr-2"/>Emergency Phone: 123-456-7890</p>
           <p className="text-lg">Emergency Room Wait Times: <span className="text-red-500">15 minutes</span></p>
+          
         </div>
       </motion.section>
 
@@ -235,6 +237,7 @@ const Home: React.FC = () => {
           </Slider>
         </div>
       </motion.section>
+      <PartnerSection/>
     </motion.div>
   );
 };
