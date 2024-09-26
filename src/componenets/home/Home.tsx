@@ -222,7 +222,7 @@ const Home: React.FC = () => {
     {/* Ambulance Image */}
     <div className="mt-8">
       <img
-        src="ambulance.jpg" 
+        src="cruiser.jpg" 
         alt="Ambulance" 
         className="mx-auto h-48 w-auto object-cover rounded-md shadow-md"
       />

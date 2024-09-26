@@ -68,7 +68,7 @@ const EmergencyCareDetail: React.FC = () => {
               transition={{ delay: 0.7, duration: 0.8 }}
               className="flex justify-center items-center"
             >
-              <img src="/emergency.jpg" alt="Emergency Care" className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
+              <img src="/cruiser.jpg" alt="Emergency Care" className="rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" />
             </motion.div>
           </div>
         </div>
