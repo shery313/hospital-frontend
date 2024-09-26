@@ -37,6 +37,7 @@ import NewsAndEvents from './componenets/plugins/NewsAndEvents';
 import DetailPage from './componenets/plugins/DetailPage';
 import PrivacyPolicy from './componenets/plugins/PrivacyPolicy';
 import TermsOfService from './componenets/plugins/TermsServices';
+import Dispensaries from './componenets/pages/Dispenceries';
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
         <Route path="/services/laboratory" element={<LaboratoryServicesDetail />} />
         <Route path="/services/surgery" element={<SurgeryServicesDetail />} />
         <Route path="/faqs" element={<Faq />} />
+        <Route path="/dispenceries" element={<Dispensaries/>} />
         <Route path="/news-events" element={<NewsAndEvents />} />
         <Route path="/news-and-events/:id" element={<DetailPage/>} />
         <Route path="/profile" element={<Profile />} />
