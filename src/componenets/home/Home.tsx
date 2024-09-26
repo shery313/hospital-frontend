@@ -209,14 +209,27 @@ const Home: React.FC = () => {
 
       {/* Emergency Information Section */}
       <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold mb-8">Emergency Information</h2>
-          <p className="text-lg mb-4">For emergencies, contact us immediately!</p>
-          <p className="text-xl font-bold mb-2"> <FaAmbulance className="inline text-red-500 h-10 w-10 mr-2"/>Emergency Phone: 123-456-7890</p>
-          <p className="text-lg">Emergency Room Wait Times: <span className="text-red-500">15 minutes</span></p>
-          
-        </div>
-      </motion.section>
+  <div className="container mx-auto px-6 text-center">
+    <h2 className="text-3xl font-bold mb-8">Emergency Information</h2>
+    <p className="text-lg mb-4">For emergencies, contact us immediately!</p>
+    <p className="text-xl font-bold mb-2">
+      <FaAmbulance className="inline text-red-500 h-10 w-10 mr-2" />Emergency Phone: 123-456-7890
+    </p>
+    <p className="text-lg mb-4">
+      Emergency Room Wait Times: <span className="text-red-500">15 minutes</span>
+    </p>
+    
+    {/* Ambulance Image */}
+    <div className="mt-8">
+      <img
+        src="ambulance.jpg" 
+        alt="Ambulance" 
+        className="mx-auto h-48 w-auto object-cover rounded-md shadow-md"
+      />
+    </div>
+  </div>
+</motion.section>
+
 
       {/* Health Resources Section */}
       <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
