@@ -52,14 +52,14 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 md:m-5 m-3">
       {/* Breadcrumbs Section */}
       <Breadcrumbs items={breadcrumbItems} />
 
       {/* Header Section with Background Image */}
       <motion.div
         className="relative bg-cover bg-center h-[400px] flex items-center justify-center"
-        style={{ backgroundImage: `url('/africans.jpeg')` }}
+        style={{ backgroundImage: `url('/nurse.jpg')` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -91,7 +91,7 @@ const About: React.FC = () => {
             </p>
           </div>
           <img
-            src="/africans.jpeg"
+            src="/history1.jpg"
             alt="Mission"
             className="w-full h-64 object-cover rounded-lg shadow-lg"
           />
@@ -169,12 +169,12 @@ const About: React.FC = () => {
             Familiarize yourself with our hospital before you visit by taking a virtual
             tour. Explore our state-of-the-art facilities, patient rooms, and more.
           </p>
-          <a
+          {/* <a
             href="/virtual-tour"
             className="text-blue-600 underline hover:text-blue-800 transition-colors text-lg"
           >
             Start Virtual Tour
-          </a>
+          </a> */}
         </div>
       </motion.section>
       
@@ -186,7 +186,7 @@ const About: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-4xl font-semibold text-center mb-8">Hospital Gallery</h2>
+        {/* <h2 className="text-4xl font-semibold text-center mb-8">Hospital Gallery</h2> */}
         <Swiper
           spaceBetween={30}
           slidesPerView={1}

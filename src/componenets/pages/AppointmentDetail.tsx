@@ -39,7 +39,7 @@ const AppointmentDetail = () => {
   };
 
   return (
-    <>
+    <div className="m-3 md:m-5">
     <Breadcrumbs items={breadcrumbItems}/>
     <motion.div
       className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg mt-10"
@@ -134,7 +134,7 @@ const AppointmentDetail = () => {
       </div>
 
       {/* Status Change Buttons */}
-      <div className="flex justify-between mt-4">
+      <div className="flex justify-between mt-4 space-x-2">
         <button
           className="bg-green-500 text-white px-4 py-2 rounded-md"
           onClick={() => handleStatusChange('Completed')}
@@ -149,7 +149,7 @@ const AppointmentDetail = () => {
         </button>
       </div>
     </motion.div>
-    </>
+    </div>
   );
 };
 
