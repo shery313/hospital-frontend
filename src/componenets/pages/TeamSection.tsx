@@ -4,10 +4,10 @@ import Slider from "react-slick";
 
 // Sample team members array
 const teamMembers = [
-  { id: 1, name: "John Doe", position: "CEO", image: "docter1.jpg" },
-  { id: 2, name: "Jane Smith", position: "CTO", image: "docter2.jpg" },
-  { id: 3, name: "Alice Johnson", position: "Designer", image: "docter3.jpg" },
-  { id: 4, name: "Bob Brown", position: "Developer", image: "docter4.jpg" },
+  { id: 1, name: "Dr Mark Lusaine Lesintiyo", position: "CEO", image: "docter1.jpg" },
+  { id: 2, name: "Dr Stephen Ekai - Dentist", position: "CTO", image: "docter2.jpg" },
+  { id: 3, name: "Dr Millicent Atieno, Surgeon", position: "Designer", image: "docter3.jpg" },
+  { id: 4, name: "Dr Josephine Akai", position: "Developer", image: "docter4.jpg" },
   { id: 5, name: "Charlie Green", position: "Marketing", image: "docter.jpg" },
 ];
 

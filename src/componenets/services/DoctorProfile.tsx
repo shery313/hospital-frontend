@@ -21,8 +21,8 @@ const DoctorProfile: React.FC = () => {
         { patient: "Jane Smith", review: "Very knowledgeable and kind." },
       ],
     },
-    "mark-smith": {
-      name: "Dr. Mark Smith",
+    "stephen-Ekai": {
+      name: "Dr. Stephen Ekai",
       specialty: "General Practitioner",
       imgSrc: "/docter.jpg",
       bio: "Dr. Mark Smith has extensive experience in family medicine and general health care.",
@@ -33,8 +33,20 @@ const DoctorProfile: React.FC = () => {
       ratings: 4.2,
       reviews: [{ patient: "Paul Jones", review: "Helpful and patient." }],
     },
-    "emily-davis": {
-      name: "Dr. Emily Davis",
+    "millicent-atieno": {
+      name: "Dr. Millicent Atieno",
+      specialty: "Pediatrician",
+      imgSrc: "/docter.jpg",
+      bio: "Dr. Emily Davis specializes in providing care for children from infancy to young adulthood.",
+      qualifications: "MBBS, MD (Pediatrics)",
+      experience: "12+ years of experience",
+      availability: ["Monday", "Thursday"],
+      contact: "123-456-7890",
+      ratings: 4.6,
+      reviews: [{ patient: "Sarah Green", review: "Fantastic with children." }],
+    },
+    "mark-lusaine": {
+      name: "Dr. Mark Lusaine",
       specialty: "Pediatrician",
       imgSrc: "/docter.jpg",
       bio: "Dr. Emily Davis specializes in providing care for children from infancy to young adulthood.",

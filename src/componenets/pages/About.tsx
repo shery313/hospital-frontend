@@ -34,8 +34,9 @@ const images = [
 ];
 
 const leadershipImages = [
-  { name: "Dr. Jane Doe", role: "Chief Executive Officer", img: "docter1.jpg" },
-  { name: "Dr. John Smith", role: "Medical Director", img: "docter4.jpg" },
+  { name: "Dr. Josephine Akai", role: "Chief Executive Officer", img: "docter1.jpg" },
+  { name: "Dr. Millicent Atieno", role: "Medical Director", img: "docter4.jpg" }, 
+  { name: "Dr. Stephen Ekai", role: "Medical Director", img: "docter3.jpg" }, 
   // Add more leadership members here
 ];
 

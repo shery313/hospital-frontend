@@ -4,40 +4,40 @@ import Breadcrumbs from "./BreadCrumbs";
 
 const doctors = [
   {
-    name: "Dr. Jane Smith",
-    specialty: "Cardiologist",
+    name: "Dr. Millicent Atieno ",
+    specialty: "Surgeon",
     experience: "10 years",
-    image: "docter.jpg", // Replace with actual image path
-    bio: "Dr. Jane Smith is a renowned cardiologist with a decade of experience treating heart conditions...",
+    image: "docter1.jpg", // Replace with actual image path
+    bio: "Dr. Millicent Atieno is a renowned surgeon with a decade of experience treating surgical conditions...",
     education: "Harvard Medical School",
     availability: true,
     rating: 4.8,
   },
   {
-    name: "Dr. John Doe",
-    specialty: "Oncologist",
+    name: "Dr.  Stephen Ekai",
+    specialty: "Dentist",
     experience: "8 years",
-    image: "docter.jpg", // Replace with actual image path
-    bio: "Dr. John Doe specializes in oncology and has successfully treated numerous cancer patients...",
+    image: "docter2.jpg", // Replace with actual image path
+    bio: "Dr. John Doe specializes in dentist and has successfully treated numerous  patients...",
     education: "Stanford University School of Medicine",
     availability: false,
     rating: 4.5,
   },
   {
-    name: "Dr. Emily Johnson",
+    name: "Dr. Millicent Atieno",
     specialty: "Pediatrician",
     experience: "5 years",
-    image: "docter.jpg", // Replace with actual image path
+    image: "docter3.jpg", // Replace with actual image path
     bio: "Dr. Emily Johnson has been dedicated to providing care to children of all ages...",
     education: "Johns Hopkins University",
     availability: true,
     rating: 4.9,
   },
   {
-    name: "Dr. Michael Brown",
+    name: "Dr. Josephine Akai",
     specialty: "Orthopedic Surgeon",
     experience: "12 years",
-    image: "docter.jpg", // Replace with actual image path
+    image: "docter4.jpg", // Replace with actual image path
     bio: "Dr. Michael Brown is an expert orthopedic surgeon with over a decade of experience in surgical procedures...",
     education: "Mayo Clinic School of Medicine",
     availability: true,

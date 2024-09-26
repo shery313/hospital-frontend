@@ -4,9 +4,9 @@ import Slider from "react-slick";
 // Sample partner logos array
 const partnerLogos = [
   { id: 1, src: "logo1.jpg", alt: "Partner 1" },
-  { id: 2, src: "logo2.jpg", alt: "Partner 2" },
+  // { id: 2, src: "logo2.jpg", alt: "Partner 2" },
   { id: 3, src: "logo3.jpg", alt: "Partner 3" },
-  { id: 4, src: "logo4.jpg", alt: "Partner 4" },
+  { id: 4, src: "logo6.jpg", alt: "Partner 4" },
   { id: 5, src: "logo5.jpg", alt: "Partner 5" },
 ];
 

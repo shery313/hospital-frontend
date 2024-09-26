@@ -164,16 +164,28 @@ const Home: React.FC = () => {
                 profileLink: "/doctors/patrick-ekuwam",
               }, 
               {
-                name: "Dr. Mark Smith",
-                specialty: "General Practitioner",
+                name: "Dr. Millicent Atieno",
+                specialty: "Surgeon",
                 imgSrc: "docter.jpg",
-                profileLink: "/doctors/mark-smith",
+                profileLink: "/doctors/millicent-atieno",
               }, 
               {
-                name: "Dr. Emily Davis",
-                specialty: "Pediatrician",
+                name: "Dr. Stephen Ekai",
+                specialty: "Dentist",
                 imgSrc: "docter2.jpg",
-                profileLink: "/doctors/emily-davis",
+                profileLink: "/doctors/stephen-Ekai",
+              }, 
+              {
+                name: "Dr. Mark Lusaine Lesintiyo",
+                specialty: "Dentist",
+                imgSrc: "docter4.jpg",
+                profileLink: "/doctors/mark-lusaine",
+              }, 
+              {
+                name: "Dr. Josephine Akai",
+                specialty: "Dentist",
+                imgSrc: "docter4.jpg",
+                profileLink: "/doctors/mark-lusaine",
               }, 
             ].map((doctor, index) => (
               <motion.div
