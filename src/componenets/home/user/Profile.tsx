@@ -78,7 +78,7 @@ const Profile: React.FC = () => {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="max-w-3xl mx-auto p-8 bg-white rounded-lg shadow-lg"
+      className="max-w-3xl mx-auto p-8 bg-white rounded-lg shadow-lg m-5"
     >
       <h1 className="text-3xl font-bold mb-8 text-center">Profile</h1>
 

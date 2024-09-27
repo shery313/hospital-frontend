@@ -17,8 +17,8 @@ const Header: React.FC<{ isAuthenticated: boolean }> = ({ isAuthenticated }) => 
   };
 
   const navItems = isAuthenticated
-    ? ["About Us", "Services", "Departments", "Doctors","Dispenceries", "Contact Us", "Blogs"]
-    : ["About Us", "Services", "Departments", "Doctors","Dispenceries","Contact Us"];
+    ? ["About Us", "Services", "Departments", "Doctors","Dispensaries", "Contact Us", "Blogs"]
+    : ["About Us", "Services", "Departments", "Doctors","Dispensaries","Contact Us"];
 
   // Function to handle scrolling to the top of the page
   const handleScrollToTop = () => {

@@ -11,26 +11,26 @@ interface Dispensary {
 const dispensaries: Dispensary[] = [
   {
     name: 'South Horr Dispensary',
-    imgSrc: 'hospital5.jpg', // Replace with actual image path
-    mapSrc: 'https://www.google.com/maps/embed?pb=...SouthHorrCoords...', // Replace with actual iframe URL
+    imgSrc: 'south.jpg', // Replace with actual image path
+    mapSrc:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.1632937958498!2d36.9157368!3d2.0903528!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x179ac930f713eb6b%3A0x4364c1dff0ab49fe!2sSouth%20Horr%20Catholic%20Health%20Centre!5e0!3m2!1sen!2s!4v1727436794806!5m2!1sen!2s",
     description: 'A community-driven dispensary serving South Horr area with primary healthcare services.',
   },
   {
     name: 'Baragoi Catholic Hospital',
-    imgSrc: 'hospital.jpg', // Replace with actual image path
-    mapSrc: 'https://www.google.com/maps/embed?pb=...BaragoiCoords...', // Replace with actual iframe URL
+    imgSrc: 'bargoi.jpg', // Replace with actual image path
+    mapSrc:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.8871768163754!2d36.790816299999996!3d1.7827312000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x17853b134001b957%3A0x7569c30263d08513!2sBaragoi%20Catholic%20Dispensary!5e0!3m2!1sen!2s!4v1727436987482!5m2!1sen!2s",
     description: 'Providing comprehensive healthcare and emergency services to the Baragoi region.',
   },
   {
     name: 'Maralal Catholic Dispensary',
-    imgSrc: '/hospital6.jpg', // Replace with actual image path
-    mapSrc: 'https://www.google.com/maps/embed?pb=...MaralalCoords...', // Replace with actual iframe URL
+    imgSrc: '/maralal.jpeg', // Replace with actual image path
+    mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.0921830841976!2d36.70183109999999!3d1.0931431000000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1785d140ae12fdf5%3A0x326a1173b82e3a62!2sMaralal%20Catholic%20Dispensary!5e0!3m2!1sen!2s!4v1727436542452!5m2!1sen!2s",
     description: 'Offering quality healthcare to the community of Maralal, with a focus on maternal and child health.',
   },
   {
     name: 'Suguta Mar Mar Dispensary',
-    imgSrc: '/hospital7.jpg', // Replace with actual image path
-    mapSrc: 'https://www.google.com/maps/embed?pb=...SugutaCoords...', // Replace with actual iframe URL
+    imgSrc: '/suguta.JPG', // Replace with actual image path
+    mapSrc:"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.4043213566283!2d36.6894!3d0.8254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1786637b45f4d71d%3A0xb2f18ee53daa81da!2sSuguta%20Marmar%20Catholic%20Dispensary!5e0!3m2!1sen!2s!4v1727436334775!5m2!1sen!2s",
     description: 'A well-established dispensary in Suguta Mar Mar providing essential healthcare services.',
   }
 ];
@@ -86,9 +86,9 @@ const Dispensaries: React.FC = () => {
               </div>
 
               {/* Call to Action (Optional) */}
-              <button className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300">
+              {/* <button className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300">
                 Learn More
-              </button>
+              </button> */}
             </motion.div>
           ))}
         </div>

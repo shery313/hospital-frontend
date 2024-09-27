@@ -218,7 +218,7 @@ const Contact: React.FC = () => {
       </div>
 
       {/* Feedback Form */}
-      <div className="bg-white p-6 rounded-lg shadow-md mt-8">
+      {/* <div className="bg-white p-6 rounded-lg shadow-md mt-8">
         <h2 className="text-3xl font-bold mb-6 text-center">Feedback</h2>
         <motion.form
           onSubmit={handleSubmit}
@@ -270,7 +270,7 @@ const Contact: React.FC = () => {
             {isSubmitting ? "Sending..." : "Submit Feedback"}
           </button>
         </motion.form>
-      </div>
+      </div> */}
     </div>
   );
 };
