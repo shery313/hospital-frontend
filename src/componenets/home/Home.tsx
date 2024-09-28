@@ -85,11 +85,12 @@ const Home: React.FC = () => {
           {[ 
             { imgSrc: "hospital.jpg", alt: "Hospital Front View" }, 
             { imgSrc: "collage1.jpg", alt: "Hospital Front View" }, 
-            { imgSrc: "collage2.jpg", alt: "Hospital Front View" }, 
+            
             { imgSrc: "hospital20.jpg", alt: "ICU Facilities" }, 
             { imgSrc: "hospital4.jpg", alt: "Modern Operation Theater" }, 
             { imgSrc: "hospital12.jpg", alt: "Nurses" }, 
             { imgSrc: "hospital11.jpg", alt: "Nurses" },  
+            { imgSrc: "collage2.jpg", alt: "Hospital Front View" }, 
             { imgSrc: "hospital9.jpg", alt: "Nurses" },  
             { imgSrc: "hospital14.jpg", alt: "Nurses" },  
           ].map((image, index) => (
