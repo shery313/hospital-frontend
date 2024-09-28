@@ -84,6 +84,8 @@ const Home: React.FC = () => {
         <Slider {...imageSliderSettings} className="w-full">
           {[ 
             { imgSrc: "hospital.jpg", alt: "Hospital Front View" }, 
+            { imgSrc: "collage1.jpg", alt: "Hospital Front View" }, 
+            { imgSrc: "collage2.jpg", alt: "Hospital Front View" }, 
             { imgSrc: "hospital20.jpg", alt: "ICU Facilities" }, 
             { imgSrc: "hospital4.jpg", alt: "Modern Operation Theater" }, 
             { imgSrc: "hospital12.jpg", alt: "Nurses" }, 
