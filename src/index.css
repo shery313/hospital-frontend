@@ -1,3 +1,20 @@
+body {
+  background-image: url('/hospital.jpg'); /* Make sure to replace with the correct path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps the background fixed when scrolling */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter';
+}
+#root {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.9); /* Optional: semi-transparent background to enhance readability */
+  min-height: 100vh;
+}
 .swiper-button-next,
 .swiper-button-prev {
   color: blue; /* Change to your preferred color */

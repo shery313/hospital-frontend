@@ -251,6 +251,11 @@
   dependencies:
     "levn" "^0.4.1"
 
+"@fontsource/inter@^5.1.0":
+  "integrity" "sha512-zKZR3kf1G0noIes1frLfOHP5EXVVm0M7sV/l9f/AaYf+M/DId35FO4LkigWjqWYjTJZGgplhdv4cB+ssvCqr5A=="
+  "resolved" "https://registry.npmjs.org/@fontsource/inter/-/inter-5.1.0.tgz"
+  "version" "5.1.0"
+
 "@fortawesome/fontawesome-common-types@6.6.0":
   "integrity" "sha512-xyX0X9mc0kyz9plIyryrRbl7ngsA9jz77mCZJsUkLl+ZKs0KWObgaEBoSgQiYWAsSmjz/yjl0F++Got0Mdp4Rw=="
   "resolved" "https://registry.npmjs.org/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-6.6.0.tgz"

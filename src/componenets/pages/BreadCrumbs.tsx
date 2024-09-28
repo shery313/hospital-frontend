@@ -13,7 +13,7 @@ const Breadcrumbs: React.FC<{ items: { label: string; path: string }[] }> = ({ i
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
   return (
-    <nav className="mb-4">
+    <nav className="mb-4 md:hidden block font-bold ">
       <ul className="flex space-x-2">
         {items.map((item, index) => (
           <li key={index} className="text-gray-600 flex items-center">

@@ -38,6 +38,13 @@ import DetailPage from './componenets/plugins/DetailPage';
 import PrivacyPolicy from './componenets/plugins/PrivacyPolicy';
 import TermsOfService from './componenets/plugins/TermsServices';
 import Dispensaries from './componenets/pages/Dispenceries';
+import PatientDashboard from './componenets/home/user/PatientDashboard';
+import ProfileSettings from './componenets/home/user/ProfileSettings';
+import LogoutPage from './componenets/auth/Logout';
+import SecureMessaging from './componenets/home/user/SecureMessaging';
+import PrescriptionManagement from './componenets/home/user/PrescriptionManagement';
+import HealthTracking from './componenets/home/user/HealthTracking';
+import MedicalRecords from './componenets/home/user/MedicalRecords';
 
 function App() {
   return (
@@ -72,13 +79,20 @@ function App() {
         <Route path="/dispensaries" element={<Dispensaries/>} />
         <Route path="/news-events" element={<NewsAndEvents />} />
         <Route path="/news-and-events/:id" element={<DetailPage/>} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} /> 
+        <Route path="/settings" element={<ProfileSettings />} /> 
+        <Route path="/dashboard" element={<PatientDashboard />} /> 
+        <Route path="/messages" element={<SecureMessaging />} /> 
+        <Route path="/prescriptions" element={<PrescriptionManagement />} /> 
+        <Route path="/health-tracking" element={<HealthTracking />} /> 
+        <Route path="/medical-records" element={<MedicalRecords />} /> 
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/blogs/:id" element={<BlogDetail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<LogoutPage />} />
       </Routes>
       <Footer />
       <WhatsAppChat /> {/* Include WhatsApp chat component */}
