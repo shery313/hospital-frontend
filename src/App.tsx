@@ -49,7 +49,7 @@ import MedicalRecords from './componenets/home/user/MedicalRecords';
 function App() {
   return (
     <Router>
-      <Header isAuthenticated={true} />
+      <Header  />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/appointment" element={<Appointment />} />
