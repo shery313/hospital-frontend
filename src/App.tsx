@@ -78,7 +78,7 @@ function App() {
         <Route path="/services/surgery" element={<SurgeryServicesDetail />} />
         <Route path="/faqs" element={<Faq />} />
         <Route path="/dispensaries" element={<Dispensaries/>} />
-        <Route path="/news-events" element={<NewsAndEvents />} />
+        <Route path="/news-and-events" element={<NewsAndEvents />} />
         <Route path="/news-and-events/:id" element={<DetailPage/>} />
         <Route path="/profile" element={<Profile />} /> 
         <Route path="/settings" element={<ProfileSettings />} /> 

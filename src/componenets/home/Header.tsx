@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaCalendarAlt, FaBars, FaTimes, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-// import { div } from "framer-motion/client";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,7 +13,7 @@ const Header: React.FC = () => {
   };
 
   const handleScrollToTop = () => {
-    setIsServicesDropdownOpen(false)
+    setIsServicesDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -22,7 +21,8 @@ const Header: React.FC = () => {
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
   };
 
-  const navItems = ["About Us", "Services", "Doctors", "Dispensaries", "Contact Us", "Blogs"];
+  // Updated navItems to include News and Events
+  const navItems = ["About Us", "Services", "Doctors", "Dispensaries", "News and Events", "Contact Us", "Blogs"];
 
   const servicesDropdown = [
     { name: "Emergency Care", link: "/services/emergency" },
@@ -47,10 +47,6 @@ const Header: React.FC = () => {
             <span>contact@hospital.com</span>
           </div>
         </div>
-        {/* <div className="flex md:space-x-4 space-x-2">
-          <Link to="/login" className="hover:text-gray-300 transition-colors" onClick={handleScrollToTop}>Login</Link>
-          <Link to="/signup" className="hover:text-gray-300 transition-colors" onClick={handleScrollToTop}>Signup</Link>
-        </div> */}
       </div>
 
       {/* Main Nav */}
@@ -62,24 +58,19 @@ const Header: React.FC = () => {
 
         {/* Navigation for Desktop */}
         <nav className="hidden md:flex space-x-6">
-        <Link
-                // key={index}
-                to={`/`}
-                className={`hover:text-blue-600 hover:scale-105 transition-all ${location.pathname === `/` ? 'font-bold' : ''}`}
-                onClick={handleScrollToTop}
-              >
-                {/* {item} */}Home
-              </Link>
-          
+          <Link
+            to={`/`}
+            className={`hover:text-blue-600 hover:scale-105 transition-all ${location.pathname === `/` ? 'font-bold' : ''}`}
+            onClick={handleScrollToTop}
+          >
+            Home
+          </Link>
           {navItems.map((item, index) => (
-            
             item === "Services" ? (
               <div
                 key={index}
                 className="relative group"
                 onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                // onMouseLeave={() => setIsServicesDropdownOpen(false)}
-                
               >
                 <button className="hover:text-blue-600 flex items-center space-x-1">
                   {item}
@@ -99,8 +90,6 @@ const Header: React.FC = () => {
                         to={service.link}
                         className="block px-4 py-2 hover:bg-blue-100"
                         onClick={handleScrollToTop}
-                        
-                        
                       >
                         {service.name}
                       </Link>
@@ -109,8 +98,6 @@ const Header: React.FC = () => {
                 )}
               </div>
             ) : (
-              
-             
               <Link
                 key={index}
                 to={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
@@ -149,22 +136,19 @@ const Header: React.FC = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white text-blue-900 py-2  "
+          className="md:hidden bg-white text-blue-900 py-2"
         >
-          <nav className="flex flex-col space-y-2 px-6 p-3  ">
-          <Link
-                  // key={index}
-                  to={`/`}
-                  className={`py-2 hover:text-blue-600 ${location.pathname === `/` ? 'font-bold' : ''}`}
-                  onClick={() => {
-                    handleScrollToTop();
-                    setIsMobileMenuOpen(false);  
-                  }}
-                >
-                  Home
-                </Link>
-            
-            
+          <nav className="flex flex-col space-y-2 px-6 p-3">
+            <Link
+              to={`/`}
+              className={`py-2 hover:text-blue-600 ${location.pathname === `/` ? 'font-bold' : ''}`}
+              onClick={() => {
+                handleScrollToTop();
+                setIsMobileMenuOpen(false);
+              }}
+            >
+              Home
+            </Link>
             {navItems.map((item, index) => (
               item === "Services" ? (
                 <div key={index} className="relative">
@@ -210,7 +194,7 @@ const Header: React.FC = () => {
             <div className=" text-center w-full">
               <Link
                 to="/appointment"
-                className="bg-blue-600 text-white px-6 py-2 rounded-full w-full hover:bg-blue-700 hover:shadow-xl transition-all duration-300 ease-in-out  text-center"
+                className="bg-blue-600 text-white px-6 py-2 rounded-full w-full hover:bg-blue-700 hover:shadow-xl transition-all duration-300 ease-in-out text-center"
                 onClick={() => {
                   handleScrollToTop();
                   setIsMobileMenuOpen(false);  // Close menu after selection
