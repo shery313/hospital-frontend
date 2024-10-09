@@ -149,9 +149,9 @@ const Header: React.FC = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden bg-white text-blue-900 py-2"
+          className="md:hidden bg-white text-blue-900 py-2  "
         >
-          <nav className="flex flex-col space-y-2 px-6">
+          <nav className="flex flex-col space-y-2 px-6 p-3  ">
           <Link
                   // key={index}
                   to={`/`}
@@ -207,10 +207,10 @@ const Header: React.FC = () => {
                 </Link>
               )
             ))}
-            <div>
+            <div className=" text-center w-full">
               <Link
                 to="/appointment"
-                className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 hover:shadow-xl transition-all duration-300 ease-in-out w-full text-center"
+                className="bg-blue-600 text-white px-6 py-2 rounded-full w-full hover:bg-blue-700 hover:shadow-xl transition-all duration-300 ease-in-out  text-center"
                 onClick={() => {
                   handleScrollToTop();
                   setIsMobileMenuOpen(false);  // Close menu after selection
