@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaPhoneAlt, FaEnvelope, FaCalendarAlt, FaBars, FaTimes, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { div } from "framer-motion/client";
+// import { div } from "framer-motion/client";
 
 const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
