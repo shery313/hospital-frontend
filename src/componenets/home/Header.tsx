@@ -158,7 +158,7 @@ const Header: React.FC = () => {
                   className={`py-2 hover:text-blue-600 ${location.pathname === `/` ? 'font-bold' : ''}`}
                   onClick={() => {
                     handleScrollToTop();
-                    setIsMobileMenuOpen(false);  // Close menu after selection
+                    setIsMobileMenuOpen(false);  
                   }}
                 >
                   Home

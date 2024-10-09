@@ -45,6 +45,7 @@ import SecureMessaging from './componenets/home/user/SecureMessaging';
 import PrescriptionManagement from './componenets/home/user/PrescriptionManagement';
 import HealthTracking from './componenets/home/user/HealthTracking';
 import MedicalRecords from './componenets/home/user/MedicalRecords';
+import NursingSchool from './componenets/services/NursingSchool';
 
 function App() {
   return (
@@ -90,6 +91,7 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/blogs/:id" element={<BlogDetail />} />
+        <Route path="/services/nursing-school" element={<NursingSchool />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/logout" element={<LogoutPage />} />
