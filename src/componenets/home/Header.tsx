@@ -14,6 +14,7 @@ const Header: React.FC = () => {
   };
 
   const handleScrollToTop = () => {
+    setIsServicesDropdownOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -77,6 +78,7 @@ const Header: React.FC = () => {
                 key={index}
                 className="relative group"
                 onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                // onMouseLeave={() => setIsServicesDropdownOpen(false)}
                 
               >
                 <button className="hover:text-blue-600 flex items-center space-x-1">
@@ -97,6 +99,7 @@ const Header: React.FC = () => {
                         to={service.link}
                         className="block px-4 py-2 hover:bg-blue-100"
                         onClick={handleScrollToTop}
+                        
                         
                       >
                         {service.name}
