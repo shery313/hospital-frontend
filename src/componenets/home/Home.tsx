@@ -35,8 +35,8 @@ const staggerContainer = {
 // Custom arrow components
 const CustomNextArrow = (props: any) => (
   <div {...props} className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10">
-    <button className="bg-blue-500 text-white p-2 font-bold rounded-full hover:bg-blue-600 transition-all">
-      <MdArrowForward/>
+    <button className="bg-white text-blue-500 p-2 font-bold rounded-full hover:bg-blue-600 transition-all">
+      <MdArrowForward className="md:w-14 md:h-14"/>
     </button>
   </div>
 );
@@ -45,8 +45,8 @@ const handleScrollToTop = () => {
   };
 const CustomPrevArrow = (props: any) => (
   <div {...props} className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10">
-    <button className="bg-blue-500 text-white font-bold  p-2 rounded-full hover:bg-blue-600 transition-all">
-      <MdArrowBack/>
+    <button className="bg-white text-blue-500 font-bold  p-2 rounded-full hover:bg-blue-600 transition-all">
+      <MdArrowBack className="md:w-14 md:h-14"/>
     </button>
   </div>
 );
