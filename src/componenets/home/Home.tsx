@@ -83,16 +83,16 @@ const Home: React.FC = () => {
       <section className="relative overflow-hidden">
         <Slider {...imageSliderSettings} className="w-full">
           {[ 
-            { imgSrc: "hospital.jpg", alt: "Hospital Front View" }, 
-            { imgSrc: "collage1.jpg", alt: "Hospital Front View" }, 
+            { imgSrc: "updated1.jpg", alt: "Hospital Front View" }, 
+            { imgSrc: "updated2.jpg", alt: "Hospital Front View" }, 
             
-            { imgSrc: "hospital20.jpg", alt: "ICU Facilities" }, 
-            { imgSrc: "hospital4.jpg", alt: "Modern Operation Theater" }, 
-            { imgSrc: "hospital12.jpg", alt: "Nurses" }, 
-            { imgSrc: "hospital11.jpg", alt: "Nurses" },  
-            { imgSrc: "collage2.jpg", alt: "Hospital Front View" }, 
-            { imgSrc: "hospital9.jpg", alt: "Nurses" },  
-            { imgSrc: "hospital14.jpg", alt: "Nurses" },  
+            { imgSrc: "updated3.jpg", alt: "ICU Facilities" }, 
+            { imgSrc: "updated4.jpg", alt: "Modern Operation Theater" }, 
+          //   { imgSrc: "hospital12.jpg", alt: "Nurses" }, 
+          //   { imgSrc: "hospital11.jpg", alt: "Nurses" },  
+          //   { imgSrc: "collage2.jpg", alt: "Hospital Front View" }, 
+          //   { imgSrc: "hospital9.jpg", alt: "Nurses" },  
+          //   { imgSrc: "hospital14.jpg", alt: "Nurses" },  
           ].map((image, index) => (
             <motion.div key={index} className="relative flex justify-center items-center">
               {/* Image as Foreground */}

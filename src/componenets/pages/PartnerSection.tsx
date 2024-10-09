@@ -7,7 +7,7 @@ const partnerLogos = [
   // { id: 2, src: "logo2.jpg", alt: "Partner 2" },
   { id: 3, src: "logo3.jpg", alt: "Partner 3" },
   { id: 4, src: "logo6.jpg", alt: "Partner 4" },
-  { id: 5, src: "logo5.jpg", alt: "Partner 5" },
+  { id: 5, src: "logo7.jpg", alt: "Partner 5" },
 ];
 
 const PartnerSection: React.FC = () => {

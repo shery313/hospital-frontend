@@ -22,6 +22,11 @@ const Footer: React.FC = () => {
           <h4 className="text-lg font-bold mb-4">Quick Links</h4>
           <ul className="space-y-2">
             <li>
+              <Link onClick={handleScrollToTop} to="/" className="hover:text-gray-300 transition-colors">
+                Home
+              </Link>
+            </li>
+            <li>
               <Link onClick={handleScrollToTop} to="/about-us" className="hover:text-gray-300 transition-colors">
                 About Us
               </Link>
