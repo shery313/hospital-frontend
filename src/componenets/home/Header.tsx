@@ -152,6 +152,19 @@ const Header: React.FC = () => {
           className="md:hidden bg-white text-blue-900 py-2"
         >
           <nav className="flex flex-col space-y-2 px-6">
+          <Link
+                  // key={index}
+                  to={`/`}
+                  className={`py-2 hover:text-blue-600 ${location.pathname === `/` ? 'font-bold' : ''}`}
+                  onClick={() => {
+                    handleScrollToTop();
+                    setIsMobileMenuOpen(false);  // Close menu after selection
+                  }}
+                >
+                  Home
+                </Link>
+            
+            
             {navItems.map((item, index) => (
               item === "Services" ? (
                 <div key={index} className="relative">
