@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import apiInstance from "../utils/axios";
 
 interface FormData {
   name: string;
@@ -9,6 +10,11 @@ interface FormData {
   time: string;
   doctor: string;
 }
+interface Doctor {
+  id: string;  // Assuming 'id' is a string, if it's a number change it to 'number'
+  name: string;
+}
+
 
 const Appointment: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -20,15 +26,18 @@ const Appointment: React.FC = () => {
     doctor: "",
   });
 
+  const [doctorsData, setDoctorsData] = useState<Doctor[]>([]);
   const [errors, setErrors] = useState<Partial<FormData>>({});
   const [successMessage, setSuccessMessage] = useState("");
 
+  // Handle form input changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: Partial<FormData> = {};
 
@@ -45,18 +54,38 @@ const Appointment: React.FC = () => {
       return;
     }
 
-    // Submit form logic here (e.g., API call)
-    setSuccessMessage("Appointment successfully booked!");
-    setErrors({});
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      date: "",
-      time: "",
-      doctor: "",
-    });
+    // Send POST request to submit the appointment
+    try {
+      await apiInstance.post("appointments", formData);
+      setSuccessMessage("Appointment successfully booked!");
+      setErrors({});
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        date: "",
+        time: "",
+        doctor: "",
+      });
+    } catch (error) {
+      console.error("Error submitting appointment:", error);
+      setSuccessMessage("");
+    }
   };
+
+  // Fetch doctor names from the API
+  useEffect(() => {
+    const fetchDoctors = async () => {
+      try {
+        const response = await apiInstance.get("doctors");
+        setDoctorsData(response.data);  // Assuming the API returns an array of doctor names
+      } catch (error) {
+        console.error("Error fetching doctors:", error);
+      }
+    };
+
+    fetchDoctors();
+  }, []);
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-between p-6 bg-white">
@@ -71,6 +100,7 @@ const Appointment: React.FC = () => {
           <div className="bg-green-100 text-green-800 p-2 rounded mb-4">{successMessage}</div>
         )}
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Name Field */}
           <div>
             <label className="block text-sm font-medium">Name</label>
             <input
@@ -83,6 +113,8 @@ const Appointment: React.FC = () => {
             />
             {errors.name && <span className="text-red-500 text-sm">{errors.name}</span>}
           </div>
+
+          {/* Email Field */}
           <div>
             <label className="block text-sm font-medium">Email</label>
             <input
@@ -95,6 +127,8 @@ const Appointment: React.FC = () => {
             />
             {errors.email && <span className="text-red-500 text-sm">{errors.email}</span>}
           </div>
+
+          {/* Phone Field */}
           <div>
             <label className="block text-sm font-medium">Phone</label>
             <input
@@ -107,6 +141,8 @@ const Appointment: React.FC = () => {
             />
             {errors.phone && <span className="text-red-500 text-sm">{errors.phone}</span>}
           </div>
+
+          {/* Date Field */}
           <div>
             <label className="block text-sm font-medium">Date</label>
             <input
@@ -118,6 +154,8 @@ const Appointment: React.FC = () => {
             />
             {errors.date && <span className="text-red-500 text-sm">{errors.date}</span>}
           </div>
+
+          {/* Time Field */}
           <div>
             <label className="block text-sm font-medium">Time</label>
             <input
@@ -129,6 +167,8 @@ const Appointment: React.FC = () => {
             />
             {errors.time && <span className="text-red-500 text-sm">{errors.time}</span>}
           </div>
+
+          {/* Doctor Field */}
           <div>
             <label className="block text-sm font-medium">Doctor</label>
             <select
@@ -138,12 +178,15 @@ const Appointment: React.FC = () => {
               className={`mt-1 block w-full border ${errors.doctor ? "border-red-500" : "border-gray-300"} rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500`}
             >
               <option value="">Select a Doctor</option>
-              <option value="dr-john-doe">Dr. John Doe</option>
-              <option value="dr-jane-smith">Dr. Jane Smith</option>
-              {/* Add more doctors as needed */}
+              {doctorsData.map((doctor, index) => (
+                <option key={index} value={doctor?.id}>
+                  {doctor?.name}
+                </option>
+              ))}
             </select>
             {errors.doctor && <span className="text-red-500 text-sm">{errors.doctor}</span>}
           </div>
+
           <button
             type="submit"
             className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-all"

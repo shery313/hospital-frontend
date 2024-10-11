@@ -3,13 +3,14 @@ import { motion } from "framer-motion";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../../pages/BreadCrumbs";
-
+import apiInstance from "../../utils/axios";
 interface BlogPost {
   id: number;
   title: string;
-  excerpt: string;
-  date: string;
-  image: string;
+  description: string;
+  published_date: string;
+  featured_image: string;
+  slug:string;
 }
 
 const Blogs: React.FC = () => {
@@ -25,37 +26,9 @@ const Blogs: React.FC = () => {
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
-      const posts: BlogPost[] = [
-        {
-          id: 1,
-          title: "The Importance of Regular Health Check-Ups",
-          excerpt: "Discover why regular health check-ups are crucial for maintaining good health...",
-          date: "2024-09-20",
-          image: "healthcare.avif",
-        },
-        {
-          id: 2,
-          title: "Healthy Eating: A Guide to Nutrition",
-          excerpt: "Learn how to maintain a balanced diet and the importance of nutrition in our lives...",
-          date: "2024-09-15",
-          image: "healthcare.avif",
-        },
-        {
-          id: 3,
-          title: "Managing Stress: Tips and Techniques",
-          excerpt: "Explore effective ways to manage stress and improve your mental health...",
-          date: "2024-09-10",
-          image: "healthcare.avif",
-        },
-        {
-          id: 4,
-          title: "Understanding Your Medical Tests",
-          excerpt: "Get insights into common medical tests and their significance...",
-          date: "2024-09-05",
-          image: "healthcare.avif",
-        },
-      ];
-      setBlogPosts(posts);
+      const response=await apiInstance.get('blogs')
+      
+      setBlogPosts(response.data);
     };
     fetchBlogPosts();
   }, []);
@@ -96,16 +69,16 @@ const Blogs: React.FC = () => {
             whileHover={{ scale: 1.03 }}
             className="border rounded-md shadow-lg overflow-hidden transition-transform duration-300"
           >
-            <Link onClick={handleScrollToTop} to={`/blogs/${post.id}`}>
+            <Link onClick={handleScrollToTop} to={`/blogs/${post.slug}`}>
               <img
-                src={post.image}
+                src={post.featured_image}
                 alt={post.title}
                 className="w-full h-48 object-cover object-center transition duration-300 hover:scale-105"
               />
               <div className="p-4">
                 <h2 className="text-xl font-semibold hover:text-blue-600 transition duration-200">{post.title}</h2>
-                <p className="text-gray-600 mb-2">{post.excerpt}</p>
-                <p className="text-gray-500 text-sm">{post.date}</p>
+                <p className="text-gray-600 mb-2">{`${post.description.slice(0,50)}.....`}</p>
+                <p className="text-gray-500 text-sm">{post.published_date}</p>
               </div>
             </Link>
           </motion.div>

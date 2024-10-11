@@ -34,7 +34,6 @@ import SurgeryServicesDetail from './componenets/services/SurgeryDetial';
 import DentistDetail from './componenets/services/DentistDetial';
 import Faq from './componenets/plugins/Faq';
 import NewsAndEvents from './componenets/plugins/NewsAndEvents';
-import DetailPage from './componenets/plugins/DetailPage';
 import PrivacyPolicy from './componenets/plugins/PrivacyPolicy';
 import TermsOfService from './componenets/plugins/TermsServices';
 import Dispensaries from './componenets/pages/Dispenceries';
@@ -46,6 +45,7 @@ import PrescriptionManagement from './componenets/home/user/PrescriptionManageme
 import HealthTracking from './componenets/home/user/HealthTracking';
 import MedicalRecords from './componenets/home/user/MedicalRecords';
 import NursingSchool from './componenets/services/NursingSchool';
+import NewsAndEventsDetail from './componenets/plugins/NewsAndEventsDetail';
 
 function App() {
   return (
@@ -77,9 +77,10 @@ function App() {
         <Route path="/services/laboratory" element={<LaboratoryServicesDetail />} />
         <Route path="/services/surgery" element={<SurgeryServicesDetail />} />
         <Route path="/faqs" element={<Faq />} />
-        <Route path="/dispensaries" element={<Dispensaries/>} />
+        <Route path="/facilities" element={<Dispensaries/>} />
         <Route path="/news-and-events" element={<NewsAndEvents />} />
-        <Route path="/news-and-events/:id" element={<DetailPage/>} />
+        <Route path="/news-and-events/:slug" element={<NewsAndEventsDetail />} />
+        {/* <Route path="/news-and-events/:id" element={<DetailPage/>} /> */}
         <Route path="/profile" element={<Profile />} /> 
         <Route path="/settings" element={<ProfileSettings />} /> 
         <Route path="/dashboard" element={<PatientDashboard />} /> 
@@ -90,7 +91,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />
-        <Route path="/blogs/:id" element={<BlogDetail />} />
+        <Route path="/blogs/:slug" element={<BlogDetail />} />
         <Route path="/services/nursing-school" element={<NursingSchool />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

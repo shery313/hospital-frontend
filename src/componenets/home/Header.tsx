@@ -22,7 +22,7 @@ const Header: React.FC = () => {
   };
 
   // Updated navItems to include News and Events
-  const navItems = ["About Us", "Services", "Doctors", "Dispensaries", "News and Events", "Contact Us", "Blogs"];
+  const navItems = ["About Us", "Services", "Doctors", "Facilities", "News and Events", "Contact Us", "Blogs"];
 
   const servicesDropdown = [
     { name: "Emergency Care", link: "/services/emergency" },
