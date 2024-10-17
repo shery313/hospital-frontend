@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {  FaAmbulance, FaHeartbeat, FaStethoscope, FaUserMd } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -7,7 +7,21 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import PartnerSection from "../pages/PartnerSection";
+import apiInstance from "../utils/axios";
 
+interface Doctors{
+  id:number;
+  slug:string;
+  image:string;
+  specialty:string;
+  name:string;
+}
+interface TestimonailsData{
+  id:number;
+  name:string;
+  image:string;
+  message:string;
+}
 // Animation Variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -77,6 +91,23 @@ const imageSliderSettings = {
     prevArrow: <CustomPrevArrow />,
   };
 const Home: React.FC = () => {
+  const[doctorData,setDoctorsData]=useState<Doctors[]>([])
+  const[testimonails,setTestimonails]=useState<TestimonailsData[]>([])
+  useEffect(()=>{
+    const fetchData= async()=>{
+      const response=await apiInstance.get('doctors')
+      setDoctorsData(response.data)
+      
+    }
+    const fetchTestimonails= async()=>{
+      const response=await apiInstance.get('testimonials')
+      setTestimonails(response.data)
+      
+    }
+    fetchData();
+    fetchTestimonails();
+  });
+  
   return (
     <motion.div initial="hidden" animate="visible" variants={fadeIn}>
       {/* Hero Section with Foreground Images */}
@@ -87,12 +118,7 @@ const Home: React.FC = () => {
             { imgSrc: "updated2.jpg", alt: "Hospital Front View" }, 
             
             { imgSrc: "updated3.jpg", alt: "ICU Facilities" }, 
-            { imgSrc: "updated4.jpg", alt: "Modern Operation Theater" }, 
-          //   { imgSrc: "hospital12.jpg", alt: "Nurses" }, 
-          //   { imgSrc: "hospital11.jpg", alt: "Nurses" },  
-          //   { imgSrc: "collage2.jpg", alt: "Hospital Front View" }, 
-          //   { imgSrc: "hospital9.jpg", alt: "Nurses" },  
-          //   { imgSrc: "hospital14.jpg", alt: "Nurses" },  
+            { imgSrc: "updated4.jpg", alt: "Modern Operation Theater" },  
           ].map((image, index) => (
             <motion.div key={index} className="relative flex justify-center items-center">
               {/* Image as Foreground */}
@@ -159,45 +185,15 @@ const Home: React.FC = () => {
         <motion.div className="container mx-auto px-6 text-center" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
           <motion.h2 className="text-3xl font-bold mb-8" variants={fadeInUp}>Doctor & Specialist Directory</motion.h2>
           <Slider {...doctorSliderSettings} className="w-full">
-            {[ 
-              {
-                name: "Dr. Patrick Ekuwam",
-                specialty: "Cardiologist",
-                imgSrc: "patrick.jpg",
-                profileLink: "/doctors/patrick-ekuwam",
-              }, 
-              {
-                name: "Dr. Millicent Atieno",
-                specialty: "Surgeon",
-                imgSrc: "docter.jpg",
-                profileLink: "/doctors/millicent-atieno",
-              }, 
-              {
-                name: "Dr. Stephen Ekai",
-                specialty: "Dentist",
-                imgSrc: "docter2.jpg",
-                profileLink: "/doctors/stephen-Ekai",
-              }, 
-              {
-                name: "Dr. Mark Lusaine Lesintiyo",
-                specialty: "Dentist",
-                imgSrc: "docter4.jpg",
-                profileLink: "/doctors/mark-lusaine",
-              }, 
-              {
-                name: "Dr. Josephine Akai",
-                specialty: "Dentist",
-                imgSrc: "docter4.jpg",
-                profileLink: "/doctors/mark-lusaine",
-              }, 
-            ].map((doctor, index) => (
+            {
+            doctorData.map((doctor,index) => (
               <motion.div
                 key={index}
                 className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-all transform hover:-translate-y-2"
                 variants={fadeInUp}
               >
-                <Link to={doctor.profileLink} onClick={handleScrollToTop} className="flex flex-col items-center">
-                  <img src={doctor.imgSrc} alt={doctor.name} className="w-32 h-32 rounded-full mx-auto mb-4" />
+                <Link to={`doctors/${doctor.slug}`} onClick={handleScrollToTop} className="flex flex-col items-center">
+                  <img src={doctor.image} alt={doctor.name} className="w-32 h-32 rounded-full mx-auto mb-4" />
                   <h3 className="text-xl font-semibold mb-2">{doctor.name}</h3>
                   <p className="text-gray-600">{doctor.specialty}</p>
                   <span className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all">
@@ -247,21 +243,11 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">What Our Patients Say</h2>
           <Slider {...imageSliderSettings} className="w-full">
-            {[
-              {
-                quote: "The care and service at this hospital are exceptional.",
-                name: "John Doe",
-                imgSrc: "patient2.jpeg",
-              },
-              {
-                quote: "I felt so much better after my surgery, thanks to the great staff here.",
-                name: "Jane Smith",
-                imgSrc: "patient1.jpeg",
-              },
-            ].map((testimonial, index) => (
+            {
+            testimonails.map((testimonial, index) => (
               <div key={index} className="text-center">
-                <img src={testimonial.imgSrc} alt={testimonial.name} className="w-24 h-24 rounded-full mx-auto mb-4 md:mt-0 mt-10" />
-                <p className="text-xl italic mb-4 ">"{testimonial.quote}"</p>
+                <img src={testimonial.image} alt={testimonial.name} className="w-24 h-24 rounded-full mx-auto mb-4 md:mt-0 mt-10" />
+                <p className="text-xl italic mb-4 ">"{testimonial.message}"</p>
                 <p className="text-lg font-semibold">{testimonial.name}</p>
               </div>
             ))}

@@ -8,8 +8,8 @@ import About from './componenets/pages/About';
 import Departments from './componenets/pages/Departments';
 import Doctors from './componenets/pages/Doctors';
 import Contact from './componenets/pages/Contact';
-import Login from './componenets/auth/Login';
-import Signup from './componenets/auth/Signup';
+// import Login from './componenets/auth/Login';
+// import Signup from './componenets/auth/Signup';
 import Services from './componenets/pages/Services';
 import AppointmentDetail from './componenets/pages/AppointmentDetail';
 import HealthResources from './componenets/pages/HealthResources';
@@ -39,7 +39,7 @@ import TermsOfService from './componenets/plugins/TermsServices';
 import Dispensaries from './componenets/pages/Dispenceries';
 import PatientDashboard from './componenets/home/user/PatientDashboard';
 import ProfileSettings from './componenets/home/user/ProfileSettings';
-import LogoutPage from './componenets/auth/Logout';
+// import LogoutPage from './componenets/auth/Logout';
 import SecureMessaging from './componenets/home/user/SecureMessaging';
 import PrescriptionManagement from './componenets/home/user/PrescriptionManagement';
 import HealthTracking from './componenets/home/user/HealthTracking';
@@ -70,7 +70,7 @@ function App() {
         <Route path="/services/radiology" element={<RadiologyDetail />} />
         <Route path="/services/dentistry" element={<DentistDetail />} />
         {/* <Route path="/doctors:doctorId" element={<DoctorProfile />} /> */}
-        <Route path="/doctors/:doctorId" element={<DoctorProfile/>} />
+        <Route path="/doctors/:slug" element={<DoctorProfile/>} />
         <Route path="/services/general-medicine" element={<GeneralMedicineDetail />} />
         <Route path="/services/specialist-care" element={<SpecialistCareDetail />} />
         <Route path="/services/physiotherapy" element={<PhysiotherapyServicesDetail />} />
@@ -93,9 +93,7 @@ function App() {
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/blogs/:slug" element={<BlogDetail />} />
         <Route path="/services/nursing-school" element={<NursingSchool />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/logout" element={<LogoutPage />} />
+        
       </Routes>
       <Footer />
       <WhatsAppChat /> {/* Include WhatsApp chat component */}

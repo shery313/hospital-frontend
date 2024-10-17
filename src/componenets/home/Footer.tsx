@@ -1,10 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import apiInstance from "../utils/axios";
+// import Logo from "../assets/logo.png";  // Import your logo image
 
 const Footer: React.FC = () => {
+    const [email, setEmail] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
     const handleScrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    const handleNewsletterSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSuccessMessage("");
+        setErrorMessage("");
+
+        try {
+            const response = await apiInstance.post('news-letter', { email: email.toLowerCase() });
+
+            if (response.status === 201) {
+                setSuccessMessage("Thank you for subscribing!");
+                setEmail("");
+            } else {
+                setErrorMessage("!Some thing went wrong");
+            }
+        } catch (error) {
+            setErrorMessage("!Already Subscribed");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -82,25 +111,38 @@ const Footer: React.FC = () => {
                             <FaLinkedin />
                         </a>
                     </div>
+
+                    {/* Newsletter Section */}
                     <h4 className="text-lg font-bold mb-2">Subscribe to our Newsletter</h4>
-                    <form>
+                    <form onSubmit={handleNewsletterSubmit}>
                         <input
                             type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
                             className="p-2 w-full rounded-lg text-blue-900"
+                            required
                         />
                         <button
                             type="submit"
                             className="bg-blue-600 hover:bg-blue-700 text-white mt-2 p-2 w-full rounded-lg transition-all"
+                            disabled={isSubmitting}
                         >
-                            Subscribe
+                            {isSubmitting ? "Subscribing..." : "Subscribe"}
                         </button>
                     </form>
+                    {successMessage && <p className="text-green-500 mt-2">{successMessage}</p>}
+                    {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
                 </div>
             </div>
 
-            {/* Back to Top Button */}
+            {/* Logo & Back to Top Button */}
             <div className="text-center mt-4">
+                <img
+                    src='/logo.png'
+                    alt="Site Logo"
+                    className="mx-auto mb-4  w-20 "
+                />
                 <button
                     onClick={handleScrollToTop}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all"

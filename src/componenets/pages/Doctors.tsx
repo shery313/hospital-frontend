@@ -1,66 +1,80 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Breadcrumbs from "./BreadCrumbs";
+import apiInstance from "../utils/axios";
+import { useNavigate } from "react-router";
+interface DoctersData {
+  id:number;
+  name:string;
+  image:string;
+  specialty:string;
+  experience_years:number;
+  availability:boolean;
+  slug:string;
 
-const doctors = [
-  {
-    name: "Dr. Millicent Atieno ",
-    specialty: "Surgeon",
-    experience: "10 years",
-    image: "docter1.jpg", // Replace with actual image path
-    bio: "Dr. Millicent Atieno is a renowned surgeon with a decade of experience treating surgical conditions...",
-    education: "Harvard Medical School",
-    availability: true,
-    rating: 4.8,
-  },
-  {
-    name: "Dr.  Stephen Ekai",
-    specialty: "Dentist",
-    experience: "8 years",
-    image: "docter2.jpg", // Replace with actual image path
-    bio: "Dr. John Doe specializes in dentist and has successfully treated numerous  patients...",
-    education: "Stanford University School of Medicine",
-    availability: false,
-    rating: 4.5,
-  },
-  {
-    name: "Dr. Millicent Atieno",
-    specialty: "Pediatrician",
-    experience: "5 years",
-    image: "docter3.jpg", // Replace with actual image path
-    bio: "Dr. Emily Johnson has been dedicated to providing care to children of all ages...",
-    education: "Johns Hopkins University",
-    availability: true,
-    rating: 4.9,
-  },
-  {
-    name: "Dr. Josephine Akai",
-    specialty: "Orthopedic Surgeon",
-    experience: "12 years",
-    image: "docter4.jpg", // Replace with actual image path
-    bio: "Dr. Michael Brown is an expert orthopedic surgeon with over a decade of experience in surgical procedures...",
-    education: "Mayo Clinic School of Medicine",
-    availability: true,
-    rating: 4.7,
-  },
-];
+
+}
+
+// const doctors = [
+//   {
+//     name: "Dr. Millicent Atieno ",
+//     specialty: "Surgeon",
+//     experience: "10 years",
+//     image: "docter1.jpg", // Replace with actual image path
+//     bio: "Dr. Millicent Atieno is a renowned surgeon with a decade of experience treating surgical conditions...",
+//     education: "Harvard Medical School",
+//     availability: true,
+//     rating: 4.8,
+//   },
+//   {
+//     name: "Dr.  Stephen Ekai",
+//     specialty: "Dentist",
+//     experience: "8 years",
+//     image: "docter2.jpg", // Replace with actual image path
+//     bio: "Dr. John Doe specializes in dentist and has successfully treated numerous  patients...",
+//     education: "Stanford University School of Medicine",
+//     availability: false,
+//     rating: 4.5,
+//   },
+//   {
+//     name: "Dr. Millicent Atieno",
+//     specialty: "Pediatrician",
+//     experience: "5 years",
+//     image: "docter3.jpg", // Replace with actual image path
+//     bio: "Dr. Emily Johnson has been dedicated to providing care to children of all ages...",
+//     education: "Johns Hopkins University",
+//     availability: true,
+//     rating: 4.9,
+//   },
+//   {
+//     name: "Dr. Josephine Akai",
+//     specialty: "Orthopedic Surgeon",
+//     experience: "12 years",
+//     image: "docter4.jpg", // Replace with actual image path
+//     bio: "Dr. Michael Brown is an expert orthopedic surgeon with over a decade of experience in surgical procedures...",
+//     education: "Mayo Clinic School of Medicine",
+//     availability: true,
+//     rating: 4.7,
+//   },
+// ];
 
 const Doctors: React.FC = () => {
-  const [selectedDoctor, setSelectedDoctor] = useState<null | typeof doctors[0]>(null);
+  // const [selectedDoctor, setSelectedDoctor] = useState<null | typeof doctors[0]>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterSpecialty, setFilterSpecialty] = useState("");
-
-  const openModal = (doctor: typeof doctors[0]) => {
-    setSelectedDoctor(doctor);
-  };
+  const [doctors,setDoctors]=useState<DoctersData[]>([])
+  const navigate=useNavigate();
+  // const openModal = (doctor: typeof doctors[0]) => {
+  //   setSelectedDoctor(doctor);
+  // };
   const breadcrumbItems = [
     { label: "Home", path: "/" },
-    { label: "Docters", path: "/doctors" },
+    { label: "Doctors", path: "/doctors" },
   ];
 
-  const closeModal = () => {
-    setSelectedDoctor(null);
-  };
+  // const closeModal = () => {
+  //   setSelectedDoctor(null);
+  // };
 
   const filteredDoctors = doctors.filter((doctor) => {
     return (
@@ -68,6 +82,13 @@ const Doctors: React.FC = () => {
       (!filterSpecialty || doctor.specialty === filterSpecialty)
     );
   });
+  useEffect(()=>{
+    const fetchData= async ()=>{
+      const response=await apiInstance.get('doctors')
+      setDoctors(response.data)
+    }
+    fetchData();
+  })
 
   return (
     <div className="p-6 bg-white">
@@ -101,6 +122,7 @@ const Doctors: React.FC = () => {
           <option value="Oncologist">Oncologist</option>
           <option value="Pediatrician">Pediatrician</option>
           <option value="Orthopedic Surgeon">Orthopedic Surgeon</option>
+          <option value="Neurology">Neurology</option>
         </select>
       </div>
 
@@ -113,7 +135,7 @@ const Doctors: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            onClick={() => openModal(doctor)}
+            onClick={()=>(navigate(`/doctors/${doctor.slug}`))}
           >
             <img
               src={doctor.image}
@@ -122,45 +144,14 @@ const Doctors: React.FC = () => {
             />
             <h2 className="text-xl font-semibold mt-4">{doctor.name}</h2>
             <p className="text-gray-700">{doctor.specialty}</p>
-            <p className="text-gray-500">{doctor.experience} of experience</p>
+            <p className="text-gray-500">{doctor.experience_years} Year of experience</p>
             <p className={`mt-2 ${doctor.availability ? "text-green-600" : "text-red-600"}`}>
               {doctor.availability ? "Available" : "Not Available"}
             </p>
-            <p className="text-yellow-500">⭐ {doctor.rating.toFixed(1)}</p>
+            
           </motion.div>
         ))}
       </div>
-
-      {/* Doctor Details Modal */}
-      {selectedDoctor && (
-        <motion.div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.div
-            className="bg-white rounded-lg p-6 max-w-lg w-full"
-            initial={{ scale: 0.95 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.3 }}
-          >
-            <button className="text-right mb-4" onClick={closeModal}>
-              Close
-            </button>
-            <h2 className="text-2xl font-bold mb-2">{selectedDoctor.name}</h2>
-            <p className="text-lg">{selectedDoctor.specialty}</p>
-            <p className="text-gray-500">{selectedDoctor.experience} of experience</p>
-            <p className="mt-4">{selectedDoctor.bio}</p>
-            <p className="mt-2 text-gray-700">
-              <strong>Education:</strong> {selectedDoctor.education}
-            </p>
-            <p className={`mt-2 ${selectedDoctor.availability ? "text-green-600" : "text-red-600"}`}>
-              {selectedDoctor.availability ? "Available for appointments" : "Currently not available"}
-            </p>
-          </motion.div>
-        </motion.div>
-      )}
     </div>
   );
 };
