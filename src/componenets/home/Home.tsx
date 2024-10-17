@@ -231,14 +231,14 @@ const Home: React.FC = () => {
 
 
       {/* Health Resources Section */}
-      <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+      {/* <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">Health Resources</h2>
           <Link onClick={handleScrollToTop} to="/health-resources" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-all">
             Explore Our Health Resources
           </Link>
         </div>
-      </motion.section>
+      </motion.section> */}
       <motion.section className="py-16 bg-gray-50" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">What Our Patients Say</h2>
