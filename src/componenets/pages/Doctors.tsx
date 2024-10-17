@@ -140,7 +140,7 @@ const Doctors: React.FC = () => {
             <img
               src={doctor.image}
               alt={doctor.name}
-              className="w-full h-40 object-cover rounded-lg"
+              className="w-fit h-fit object-cover rounded-lg"
             />
             <h2 className="text-xl font-semibold mt-4">{doctor.name}</h2>
             <p className="text-gray-700">{doctor.specialty}</p>
