@@ -77,7 +77,7 @@ const NewsAndEvents: React.FC = () => {
               whileHover={{ scale: 1.02 }}
             >
               {item?.image && (
-                <img src={item?.image} alt={item.title} className="w-full h-40 object-cover" />
+                <img src={item?.image} alt={item.title} className="w-fit  h-fit object-cover" />
               )}
               <div className="p-4">
                 <h3 className="text-xl font-semibold">{item.title}</h3>

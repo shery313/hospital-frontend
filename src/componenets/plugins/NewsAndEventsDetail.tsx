@@ -46,7 +46,7 @@ const NewsAndEventsDetail: React.FC = () => {
         <img
           src={newsEventDetail?.image}
           alt={newsEventDetail?.title}
-          className="w-full h-64 object-cover mb-4"
+          className="w-fit h-fit object-cover mb-4"
         />
       )}
       <p className="text-gray-500 mb-2">{new Date(newsEventDetail?.event_date).toLocaleDateString()}</p>

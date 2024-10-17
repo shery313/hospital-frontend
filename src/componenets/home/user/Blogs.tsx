@@ -73,7 +73,7 @@ const Blogs: React.FC = () => {
               <img
                 src={post.featured_image}
                 alt={post.title}
-                className="w-full h-48 object-cover object-center transition duration-300 hover:scale-105"
+                className="w-fit h-fit object-cover object-center transition duration-300 hover:scale-105"
               />
               <div className="p-4">
                 <h2 className="text-xl font-semibold hover:text-blue-600 transition duration-200">{post.title}</h2>

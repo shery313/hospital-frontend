@@ -49,7 +49,7 @@ const BlogDetail: React.FC = () => {
       <img
         src={blogPost.featured_image}
         alt={blogPost.title}
-        className="w-full h-64 object-cover mb-4"
+        className="w-fit h-fit object-cover mb-4"
       />
       <p className="text-gray-500 mb-2">{blogPost.published_date}</p>
       <p>{blogPost.description}</p>
