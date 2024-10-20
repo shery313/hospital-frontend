@@ -47,6 +47,7 @@ import MedicalRecords from './componenets/home/user/MedicalRecords';
 import NursingSchool from './componenets/services/NursingSchool';
 import NewsAndEventsDetail from './componenets/plugins/NewsAndEventsDetail';
 import Career from './componenets/plugins/Career';
+import Chatbot from './componenets/plugins/ChatBot';
 
 function App() {
   return (
@@ -98,7 +99,9 @@ function App() {
         
       </Routes>
       <Footer />
+      <Chatbot/>
       <WhatsAppChat /> {/* Include WhatsApp chat component */}
+      
     </Router>
   );
 }
