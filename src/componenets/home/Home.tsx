@@ -8,6 +8,7 @@ import Slider from 'react-slick';
 import { MdArrowBack, MdArrowForward } from "react-icons/md";
 import PartnerSection from "../pages/PartnerSection";
 import apiInstance from "../utils/axios";
+import Capacity from "./Capacity";
 
 interface Doctors{
   id:number;
@@ -228,6 +229,7 @@ const Home: React.FC = () => {
     </div>
   </div>
 </motion.section>
+<Capacity/>
 
 
       {/* Health Resources Section */}
