@@ -91,6 +91,11 @@ const Footer: React.FC = () => {
                                 Privacy Policy
                             </Link>
                         </li>
+                        <li>
+                            <Link to="/career" onClick={handleScrollToTop} className="hover:text-gray-300 transition-colors">
+                                Career
+                            </Link>
+                        </li>
                     </ul>
                 </div>
 

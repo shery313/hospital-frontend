@@ -46,6 +46,7 @@ import HealthTracking from './componenets/home/user/HealthTracking';
 import MedicalRecords from './componenets/home/user/MedicalRecords';
 import NursingSchool from './componenets/services/NursingSchool';
 import NewsAndEventsDetail from './componenets/plugins/NewsAndEventsDetail';
+import Career from './componenets/plugins/Career';
 
 function App() {
   return (
@@ -77,6 +78,7 @@ function App() {
         <Route path="/services/laboratory" element={<LaboratoryServicesDetail />} />
         <Route path="/services/surgery" element={<SurgeryServicesDetail />} />
         <Route path="/faqs" element={<Faq />} />
+        <Route path="/career" element={<Career />} />
         <Route path="/facilities" element={<Dispensaries/>} />
         <Route path="/news-and-events" element={<NewsAndEvents />} />
         <Route path="/news-and-events/:slug" element={<NewsAndEventsDetail />} />
