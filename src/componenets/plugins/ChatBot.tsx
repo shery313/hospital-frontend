@@ -44,7 +44,7 @@ const Chatbot = () => {
   const toggleChat = () => setIsChatOpen(true);
 
   return (
-    <div className="fixed bottom-5 left-5 z-50">
+    <div className="fixed bottom-5 left-5 z-50 hidden">
       {/* Avatar Component */}
       {!isChatOpen && <Avatar onClick={toggleChat} />}
       {/* Chatbox Component */}
