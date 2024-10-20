@@ -1,3 +1,4 @@
+import  { useEffect, useState } from 'react';
 import { FaBed, FaClinicMedical, FaUserNurse, FaCalendarAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
